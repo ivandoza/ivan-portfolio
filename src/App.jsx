@@ -1,11 +1,13 @@
-import styles from './App.module.scss'
+
+import BackgroundAnimation from "./components/Background/BackgroundAnimation"
+import Home from "./components/Home/Home"
 
 function App() {
 
   return (
     <>
-      <div className={styles.cont}>
-      </div>
+    <BackgroundAnimation />
+    <Home />
     </>
   )
 }
