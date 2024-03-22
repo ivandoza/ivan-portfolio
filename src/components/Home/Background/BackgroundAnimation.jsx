@@ -14,8 +14,6 @@ function BackgroundAnimation() {
         <div className={styles.shootingStars2}></div>
       </div>
     </div>
-      
-
   );
 }
 

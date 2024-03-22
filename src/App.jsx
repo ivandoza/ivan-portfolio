@@ -1,15 +1,16 @@
-
-import BackgroundAnimation from "./components/Background/BackgroundAnimation"
-import Home from "./components/Home/Home"
+import About from "./components/About/About";
+import Header from "./components/Home/Header";
+import Home from "./components/Home/Home";
 
 function App() {
-
   return (
     <>
-    <BackgroundAnimation />
-    <Home />
+      <Home>
+        <Header />
+        <About />
+      </Home>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
