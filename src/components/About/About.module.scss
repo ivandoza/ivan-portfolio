@@ -1,13 +1,17 @@
 .About {
   height: max-content;
   width: 100%;
-  background-color: #e6eaf0;
+  background-color: transparent;
   display: flex;
   justify-content: center;
+  position: relative;
+  align-items: center;
 }
 
 .content {
-  width: 70%;
+  width: 100%;
+  background-color: #c6c0ccf5;
+  box-shadow: #252627b9;
 }
 
 .About h2 {
@@ -19,23 +23,193 @@
 
 .profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: 50px 100px;
 }
 
-.profileImg {
-  overflow: hidden;
+// .profileTop {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 60px;
+// }
+
+// .profileImg {
+//     border-radius: 50%;
+//     width: 100px;
+//     height: 100px;
+//     margin-bottom: 20px;
+//     width: max-content;
+//     overflow: hidden;
+// }
+
+
+.profileTop {
+  width: max-content;
+  margin: 30px auto;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  border-radius: 25px;
+  padding: 16px;
+  background: gray;
+  color: white;
+  padding: 16px;
+  position: relative;
+  max-width: 220px;
+  height: max-content;
+  margin: 0 auto;
+  font-family: sans-serif;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: -19px;
+  background: transparent;
+  width: 0px;
+  height: 0px;
+  border-bottom: 40px solid gray;
+  border-right: 40px solid transparent;
+  border-left: 40px solid transparent;
+  transform: rotate(-10deg);
+  z-index: -1;
 }
 
-.profileImg img {
-  display: block;
-  width: 100%;
-  height: auto;
+.title p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid rgb(255, 255, 255); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(255, 255, 255);
+  }
+}
+.imgContainer {
+  display: flex;
+  padding: 40px 0;
+}
+
+.story {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.story .storyImg {
+  background: rgb(255, 201, 0);
+  background: linear-gradient(36deg, rgb(255, 201, 0) 13%, rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  padding: 6px;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story .storyImg {
+  animation-duration: 1s;
+  animation-name: story;
+  animation-iteration-count: 1;
+}
+
+.story .storyImg:hover {
+  animation-duration: 1s;
+  animation-name: story;
+  animation-iteration-count: infinite;
+}
+
+@keyframes story {
+  0% {
+    background: linear-gradient(36deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  10% {
+    background: linear-gradient(72deg,transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  20% {
+    background: linear-gradient(108deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  30% {
+    background: linear-gradient(144deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  40% {
+    background: linear-gradient(180deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  50% {
+    background: linear-gradient(216deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  60% {
+    background: linear-gradient(252deg,transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  70% {
+    background: linear-gradient(288deg,transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  80% {
+    background: linear-gradient(324deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  90% {
+    background: linear-gradient(360deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+  100% {
+    background: linear-gradient(396deg, transparent 0%,transparent 24%,rgb(255, 201, 0) 28%,  rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);
+  }
+
+}
+
+.story .storyImg img{
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  border: solid 4px #c6c0ccf5 ;
+  background-color: #c6c0ccf5;
+
+
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .text {
   margin: 40px;
   color: #0f1825;
+  text-align: center;
 }
 
 .skills {

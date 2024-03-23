@@ -8,6 +8,8 @@ function About() {
 
   // const { project, github, name, description } = props.data
 
+
+
   return (
     // <Fade duration={1000}>
     //   <div className="row">
@@ -51,15 +53,23 @@ function About() {
     //   </div>
     // </Fade>
     <section id="about" className={styles.About}>
+      <div className={styles.effect}></div>
       <div className={styles.content}>
         <Fade duration={1000}>
-          <h2>About Me</h2>
           <div className={styles.profile}>
-            <div className={styles.profileImg}>
+            <div className={styles.profileTop}>
+            <div className={styles.imgContainer}>
+              <div className={styles.story}>
+              <div className={styles.storyImg}>
               <img src={profileImg} alt="ivan" type="png" />
+              </div>
+              </div>
+            </div>
+            <div className={styles.title}>
+              <p>Hi, I'm Ivan Dorta</p></div>
             </div>
             <div className={styles.profileInfo}>
-              <div className={styles.title}></div>
+            <div className={styles.titleText}>More About me:</div>
               <div className={styles.text}>
                 <p>
                   Software Developer, apasionado por el desarrollo Frontend ♥️.

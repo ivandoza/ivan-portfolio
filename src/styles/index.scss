@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("/public/fonts/Raleway-SemiBold.ttf");
+}
+
+
+
 /**
        * Make all elements from the DOM inherit from the parent box-sizing
        * Since `*` has a specificity of 0, it does not override the `html` value
@@ -20,6 +27,7 @@ html,
 body,
 #__next {
   height: 100%;
+  font-family: Raleway;
 }
 
 /*
@@ -58,10 +66,12 @@ a {
   text-decoration: none;
 }
 
-.Home {
+.Home, .Projects {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+

@@ -67,7 +67,7 @@ function Header() {
         <div className={styles.rowBanner}>
           <div className={styles.bannerText}>
             <Fade bottom>
-              <h1 className="responsive-headline">IVAN DORTA.</h1>
+              <h1 className={styles.nombre}>IVAN DORTA.</h1>
             </Fade>
             <Fade bottom duration={1200}>
               <h3>

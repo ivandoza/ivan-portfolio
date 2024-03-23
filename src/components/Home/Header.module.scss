@@ -20,7 +20,7 @@ header {
 }
 
 .navWrap {
-  font: 12px "opensans-bold", sans-serif;
+  font-size: 12px;
   width: 100%;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -98,14 +98,17 @@ header:before {
 .bannerText {
   width: 100%;
 }
-.bannerText h1 {
-  font: 90px/1.1em "opensans-bold", sans-serif;
-  color: #fff;
+.nombre {
+  font-size: 90px;
+  background: linear-gradient(36deg, rgb(255, 201, 0) 13%, rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
   letter-spacing: -2px;
   margin: 0 auto 18px auto;
 }
 .bannerText h3 {
-  font: 18px/1.9em "librebaskerville-regular", serif;
+  font-size: 18px/1.9em;
   color: #ddd;
   margin: 0 auto;
   width: 70%;
