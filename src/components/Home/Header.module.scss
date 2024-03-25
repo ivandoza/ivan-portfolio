@@ -63,6 +63,8 @@ header {
   text-decoration: none;
   text-align: left;
   color: #fff;
+  font-size: 13px;
+  font-family: var(--fontBold);
 
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -75,7 +77,7 @@ header {
   background-color: transparent !important;
 }
 .nav li.current a {
-  color: #fe6928;
+  color: var(--orange);
 }
 
 /* vertically center banner section */
@@ -98,15 +100,56 @@ header:before {
 .bannerText {
   width: 100%;
 }
+// .nombre {
+//   font-size: 90px;
+//   background: linear-gradient(36deg, rgb(255, 201, 0) 13%, rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);;
+//   color: transparent;
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   letter-spacing: -2px;
+//   margin: 0 auto 18px auto;
+//   animation: move-bg 8s infinite linear;
+// }
+
 .nombre {
+  --bg-size: 400%;
+  --color-one: #ff9d14;
+  --color-two: #ff672f;
+  --color-three: #ff5e33;
+  --color-four: #ff4240;
   font-size: 90px;
-  background: linear-gradient(36deg, rgb(255, 201, 0) 13%, rgb(255, 0 ,95) 73%, rgb(255, 9, 237) 100%);;
+  font-family:var(--fontBold);
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-three),
+      var(--color-four),
+      var(--color-three),
+      var(--color-two),
+      var(--color-one),
+    )
+    0 0 / var(--bg-size) 100%;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  letter-spacing: -2px;
-  margin: 0 auto 18px auto;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .nombre {
+    animation: move-bg 15s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+
+
+
+
 .bannerText h3 {
   font-size: 18px/1.9em;
   color: #ddd;
@@ -141,14 +184,13 @@ header:before {
   position: absolute;
   bottom: 30px;
   left: 50%;
-  margin-left: -29px;
-  color: #fff;
+  margin-left: -10px;
   display: block;
   height: 42px;
   width: 42px;
   font-size: 42px;
   line-height: 42px;
-  color: #fff;
+  color: var(--grey);
   border-radius: 100%;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -156,5 +198,22 @@ header:before {
   transition: all 0.3s ease-in-out;
 }
 .scrolldown a:hover {
-  color: #0762f9;
+  color: var(--orange);
+  opacity: 0.8;
+}
+
+.media {
+  position: absolute;
+  left: 20px;
+}
+
+.media li {
+  color: rgb(241, 241, 241);
+  font-size: 36px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.media li:hover {
+  color: var(--orange);
 }

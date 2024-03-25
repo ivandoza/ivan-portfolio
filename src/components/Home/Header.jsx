@@ -3,6 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import styles from "./Header.module.scss";
 import Button from "../Buttons/Button";
 import { FaChevronCircleDown } from "react-icons/fa";
+import { PiDownloadSimpleBold, PiEnvelope, PiEnvelopeSimple, PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
 
 function Header() {
   // if (!props.data) return null;
@@ -26,7 +27,6 @@ function Header() {
       <a className={styles.mobileBtn} href="#home" title="Hide navigation">
         Hide navigation
       </a> */}
-
           <ul id="nav" className={styles.nav}>
             <li className={styles.current}>
               <a
@@ -67,7 +67,7 @@ function Header() {
         <div className={styles.rowBanner}>
           <div className={styles.bannerText}>
             <Fade bottom>
-              <h1 className={styles.nombre}>IVAN DORTA.</h1>
+              <h1 className={styles.nombre}>IVÁN DORTA.</h1>
             </Fade>
             <Fade bottom duration={1200}>
               <h3>
@@ -80,16 +80,28 @@ function Header() {
             <Fade bottom duration={2000}>
               <ul className={styles.social}>
                 <li>
-                  <Button texto="Project" isBlue />
+                  <Button texto="Download CV" icon={<PiDownloadSimpleBold />}isBlue />
                 </li>
                 <li>
-                  <Button texto="Project" isBlue />
+                  <Button texto="Contact Me" icon={<PiEnvelopeSimple />}isBlue />
+                </li>
+              </ul>
+            </Fade>
+            <Fade bottom duration={2500}>
+              <ul className={styles.media}>
+              <li>
+                <PiGithubLogo />
+                </li>
+                <li>
+                <PiLinkedinLogo />
+                </li>
+                <li>
+                <PiTelegramLogo />
                 </li>
               </ul>
             </Fade>
           </div>
         </div>
-
         <p className={styles.scrolldown}>
           <a className={styles.smoothscroll} href="#about">
             <i className={styles.downCircle}>

@@ -2,6 +2,10 @@
   font-family: "Raleway";
   src: url("/public/fonts/Raleway-SemiBold.ttf");
 }
+@font-face {
+  font-family: "Raleway-bold";
+  src: url("/public/fonts/Raleway-Bold.ttf");
+}
 
 
 
@@ -28,6 +32,15 @@ body,
 #__next {
   height: 100%;
   font-family: Raleway;
+}
+
+:root {
+  --font: Raleway;
+  --fontBold: Raleway-bold;
+  --gradient-multi: linear-gradient(90deg, rgba(255,157,20,1) 0%, rgba(255,103,47,1) 25%, rgba(255,94,51,1) 75%, rgba(255,66,64,1) 100%);
+  --gradient-orange:linear-gradient(90deg, rgba(255,66,64,1) 0%, rgba(255,103,47,1) 15%, rgba(255,94,51,1) 85%, rgba(255,66,64,1) 100%);
+  --grey: #c6c0cc;
+  --orange: #ff5e33;
 }
 
 /*
