@@ -80,6 +80,10 @@ header {
   color: var(--orange);
 }
 
+.nav li a:hover {
+  color: var(--orange);
+}
+
 /* vertically center banner section */
 header:before {
   content: "";
@@ -208,7 +212,7 @@ header:before {
 }
 
 .media li {
-  color: rgb(241, 241, 241);
+  color: var(--white);
   font-size: 36px;
   margin-bottom: 8px;
   cursor: pointer;

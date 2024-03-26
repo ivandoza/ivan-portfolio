@@ -7,19 +7,26 @@ const Button = ({
   texto,
   isTransparent,
   isBlue,
+  isBlack,
+  isWeb,
+  isPortfolio,
   icon,
   onClick,
+  link,
 }) => {
   const className = cx({
     button: true,
     transparent: isTransparent,
     blue: isBlue,
+    black: isBlack,
+    web: isWeb,
+    portfolio: isPortfolio,
   });
   return (
-    <button className={className} onClick={onClick}>
+    <a className={className} onClick={onClick} href={link}>
       {texto}
       {icon}
-    </button>
+    </a>
   );
 };
 

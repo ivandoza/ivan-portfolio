@@ -6,26 +6,29 @@
   justify-content: center;
   position: relative;
   align-items: center;
+  color: #0e161f;
 }
 
 .content {
   width: 100%;
-  background-color: #c6c0ccf5;
+  background-color: #e8e4ec;
   box-shadow: #252627b9;
 }
 
-.About h2 {
+h2 {
   display: flex;
   justify-content: center;
-  color: #0f1825;
   margin-top: 70px;
 }
 
 .profile {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin: 50px 100px;
+  justify-content: center;
+  gap: 50px;
+  position: relative;
 }
 
 // .profileTop {
@@ -48,24 +51,26 @@
 
 .profileTop {
   width: max-content;
-  margin: 30px auto;
+  margin: 30px;
   display: flex;
   gap: 30px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: -px;
+  left: 10px;
 }
 .title {
   border-radius: 25px;
   padding: 16px;
-  background: gray;
+  background: #0e161f;
   color: white;
   padding: 16px;
   position: relative;
   max-width: 220px;
   height: max-content;
   margin: 0 auto;
-  font-family: sans-serif;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -79,7 +84,7 @@
   background: transparent;
   width: 0px;
   height: 0px;
-  border-bottom: 40px solid gray;
+  border-bottom: 40px solid #0e161f;
   border-right: 40px solid transparent;
   border-left: 40px solid transparent;
   transform: rotate(-10deg);
@@ -92,7 +97,7 @@
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation: typing 4.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 @keyframes typing {
   from {
@@ -192,8 +197,8 @@
   border-radius: 50%;
   padding: 0;
   margin: 0;
-  border: solid 4px #c6c0ccf5 ;
-  background-color: #c6c0ccf5;
+  border: solid 4px var(--white) ;
+  background-color: var(--white);
 
 
 }
@@ -203,84 +208,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .text {
   margin: 40px;
   color: #0f1825;
   text-align: center;
-}
-
-.skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0px;
-  gap: 50px;
-}
-
-.scroll {
-  position: relative;
-  display: flex;
-  align-items: center;
-  max-width: 80%;
-  overflow: hidden;
-  mask-image: linear-gradient(
-    to left,
-    transparent,
-    black 80px,
-    black calc(100% - 80px),
-    transparent
-  );
-  // -webkit-mask-image: linear-gradient(90deg, transparent, #e3daf2 20%, #e3daf2 80%, transparent)
-}
-
-.scroll div {
-  white-space: nowrap;
-  animation: scroll var(--time) linear infinite;
-  animation-delay: calc(var(--time) * -1);
-}
-
-.scroll div:nth-child(2) {
-  animation: scroll2 var(--time) linear infinite;
-  animation-delay: calc(var(--time) / -2);
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scroll2 {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-200%);
-  }
-}
-:root {
-  --time: 60s;
-}
-
-.scroll div span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  letter-spacing: 0.2em;
-  background: #1094b6;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border-radius: 25px;
-  transition: 0.5s;
-  margin: 10px;
+  font-size: 18px;
 }
