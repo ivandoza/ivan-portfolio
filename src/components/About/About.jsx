@@ -71,8 +71,8 @@ function About() {
             </div>
             
             <div className={styles.profileInfo}>
-              <div className={styles.titleText}><h2>More About me:</h2></div>
               <div className={styles.text}>
+              <div className={styles.titleText}><h2>About me:</h2></div>
                 <p>
                   Software Developer, apasionado por el desarrollo Frontend ♥️.
                   Me encanta crear sitios web que brinden una experiencia de

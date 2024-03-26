@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Skills.module.scss";
 import {
   DiCss3,
@@ -15,12 +15,16 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { FaCss3, FaHtml5, FaNodeJs, FaReact, FaSass } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Skills() {
   // if (!props.data) return null;
 
   // const { project, github, name, description } = props.data
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+}, []);
   return (
     <div className={styles.skills}>
       <h2>Skills</h2>
@@ -143,6 +147,24 @@ function Skills() {
             <p>PostgreSQL</p>
           </span>
         </div>
+      </div>
+      <div className={styles.skillsList}>
+        <ul className={styles.front} data-aos="fade-right">
+          <h3>Frontend</h3>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React.js</li>
+          <li>Tailwind css</li>
+          <li>Sass</li>
+        </ul>
+        <ul className={styles.back} data-aos="fade-left">
+        <h3>Backend</h3>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>PostgreSQL</li>
+          <li>Ethereum</li>
+          <li>Web3.js</li>
+        </ul>
       </div>
     </div>
   );
