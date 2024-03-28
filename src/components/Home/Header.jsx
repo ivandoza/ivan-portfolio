@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import styles from "./Header.module.scss";
 import Button from "../Buttons/Button";
 import { FaChevronCircleDown } from "react-icons/fa";
 import { PiDownloadSimpleBold, PiEnvelope, PiEnvelopeSimple, PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
+import Modal from "../ContactModal/Modal";
+import Home from "./Home";
 
 function Header() {
   // if (!props.data) return null;
@@ -17,9 +19,14 @@ function Header() {
     });
   };
 
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
-    <>
+   <Home>
+            
       <header id="#home">
+      {!isContactOpen && (
+        <>
         <nav className={styles.navWrap}>
           {/* <a className={styles.mobileBtn} href="#nav-wrap" title="Show navigation">
         Show navigation
@@ -57,7 +64,7 @@ function Header() {
             </li>
 
             <li>
-              <a className={styles.smoothscroll} href="#contact">
+              <a className={styles.smoothscroll} href="#contact" onClick={() => setIsContactOpen(true)}>
                 Contact
               </a>
             </li>
@@ -83,7 +90,7 @@ function Header() {
                   <Button texto="Download CV" icon={<PiDownloadSimpleBold />}isBlue />
                 </li>
                 <li>
-                  <Button texto="Contact Me" icon={<PiEnvelopeSimple />}isBlue />
+                  <Button texto="Contact Me" icon={<PiEnvelopeSimple />}isBlue onClick={() => setIsContactOpen(true)}/>   
                 </li>
               </ul>
             </Fade>
@@ -101,7 +108,7 @@ function Header() {
               </ul>
             </Fade>
           </div>
-        </div>
+        </div>  
         <p className={styles.scrolldown}>
           <a className={styles.smoothscroll} href="#about">
             <i className={styles.downCircle}>
@@ -109,8 +116,13 @@ function Header() {
             </i>
           </a>
         </p>
-      </header>
-    </>
+        </>
+        )}
+      </header>        
+      {isContactOpen && (
+                    <Modal onClose={() => setIsContactOpen(false)} />
+                  )}
+      </Home> 
   );
 }
 

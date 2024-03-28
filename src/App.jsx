@@ -6,11 +6,9 @@ import Projects from "./components/Projects/Projects";
 function App() {
   return (
     <>
-      <Home>
         <Header />
         <About />
         <Projects />   
-      </Home>
     </>
   );
 }

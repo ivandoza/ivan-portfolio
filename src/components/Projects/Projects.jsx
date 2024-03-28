@@ -3,7 +3,7 @@ import styles from './Projects.module.scss'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import pancakeProject from "../../assets/pancakeswap.png";
-import BackgroundAnimation from "../Home/Background/BackgroundAnimation";
+import BackgroundAnimation from "../../Background/Background";
 import Button from "../Buttons/Button";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";

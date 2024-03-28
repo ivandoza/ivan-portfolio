@@ -33,6 +33,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  
 }
 .title {
   border-radius: 25px;
@@ -79,6 +80,15 @@
   }
   to {
     width: 100%;
+  }
+}
+
+@keyframes repeat-typing {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
   }
 }
 

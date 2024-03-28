@@ -1,9 +1,9 @@
-import BackgroundAnimation from "./Background/BackgroundAnimation";
+import Background from "../../Background/Background";
 
 function Home({ children }) {
   return (
     <section className="Home">
-      <BackgroundAnimation />
+      <Background />
       {children}
     </section>
   );
