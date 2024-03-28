@@ -31,6 +31,15 @@ header {
   top: 0;
 }
 .opaque {
+  font-size: 12px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0 auto;
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
   background-color: #333;
 }
 
@@ -122,7 +131,7 @@ header:before {
   --color-three: #ff5e33;
   --color-four: #ff4240;
   font-size: 90px;
-  font-family:var(--fontBold);
+  font-family: var(--fontBold);
   background: linear-gradient(
       90deg,
       var(--color-one),
@@ -131,7 +140,7 @@ header:before {
       var(--color-four),
       var(--color-three),
       var(--color-two),
-      var(--color-one),
+      var(--color-one)
     )
     0 0 / var(--bg-size) 100%;
   color: transparent;
@@ -149,10 +158,6 @@ header:before {
     }
   }
 }
-
-
-
-
 
 .bannerText h3 {
   font-size: 18px/1.9em;
@@ -220,4 +225,8 @@ header:before {
 
 .media li:hover {
   color: var(--orange);
+}
+
+.mobileBtn {
+  display: none;
 }
