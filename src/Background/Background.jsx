@@ -2,9 +2,12 @@ import BackgroundAnimation from "./Animation";
 import styles from "./Background.module.scss";
 import Stars from "./Stars";
 
-function Background() {
+function Background(props) {
+
+  const containerClass = props.containerClassName || styles.container;
+
   return (
-    <div className={styles.container}>
+    <div className={containerClass}>
       <Stars />
       <BackgroundAnimation />
     </div>

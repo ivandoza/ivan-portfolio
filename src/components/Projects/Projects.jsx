@@ -10,12 +10,13 @@ import { TbExternalLink } from "react-icons/tb";
 
 const Projects = () => {
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({ duration: 500 });
     }, []);
     return (
         <section className={styles.projects}>
+            <BackgroundAnimation containerClassName={styles.fondo} />
             {/* <div className=" bg-gradient-to-r from-pink-300 via-green-300 to-yellow-200 max-w-7xl h-1 rounded-xl m-auto mt-16 mb-20"></div> */}
-        <BackgroundAnimation className={styles.fondo} />
+        
             <div className={styles.titleCont}>
                 <h1 className={styles.title}>
                         Some Projects in Web Development
@@ -24,15 +25,16 @@ const Projects = () => {
 
             <div className={styles.cards}>
                 <div
-                    data-aos="flip-left"
+                    data-aos="zoom-in"
                     data-aos-anchor-placement="bottom-bottom"
                     className={styles.tarjeta}
                 >
                     {" "}
                     <div className={styles.gradientBorder}></div>
                     <div className={styles.gradientborder2}></div>
-                    <div className={styles.tarjeta2}>
-                        <div className={styles.tarjetaInterior}>
+                    <div className={styles.cardContent}>
+                    
+                        
                             {" "}
                             <img
                                 className={styles.cardImage}
@@ -42,7 +44,7 @@ const Projects = () => {
                             />
                             <div className={styles.cardText}>
                                 <h5 className={styles.cardTitle}>
-                                    PancakeSwap
+                                    PancakeSwap.finance
                                 </h5>
                                 <div className={styles.tech}>
                                     <span className={styles.techItem} style={{
@@ -99,19 +101,19 @@ const Projects = () => {
                                     <Button isWeb texto="View Web" icon={<TbExternalLink />} link={"https://pancake-swap-eta.vercel.app/"} />
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            </div>
+                    
                 </div>
                 <div
-                    data-aos="flip-left"
+                    data-aos="zoom-in"
                     data-aos-anchor-placement="bottom-bottom"
                     className={styles.tarjeta}
                 >
                     {" "}
                     <div className={styles.gradientBorder}></div>
                     <div className={styles.gradientborder2}></div>
-                    <div className={styles.tarjeta2}>
-                    <div className={styles.tarjetaInterior}>
+                    <div className={styles.cardContent}>
+                    
                             {" "}
                             <img
                                 className={styles.cardImage}
@@ -119,9 +121,10 @@ const Projects = () => {
                                 alt="website_image"
                                 width="300px"
                             />
+                            
                             <div className={styles.cardText}>
                                 <h5 className={styles.cardTitle}>
-                                    PancakeSwap
+                                    This portfolio
                                 </h5>
                                 <div className={styles.tech}>
                                     <span className={styles.techItem} style={{
@@ -135,29 +138,9 @@ const Projects = () => {
                                         JavaScript
                                     </span>
                                     <span className={styles.techItem} style={{
-                                        color: "#8da2fb", borderColor: "#8da2fb"
-                                    }}>
-                                        TypeScript
-                                    </span>
-                                    <span className={styles.techItem} style={{
                                         color: "#FF8080", borderColor: "#FF8080"
                                     }}>
                                         Sass
-                                    </span>
-                                    <span className={styles.techItem} style={{
-                                        color: "#FFB43A", borderColor: "#FFB43A"
-                                    }}>
-                                        ETH Blockchain
-                                    </span>
-                                    <span className={styles.techItem} style={{
-                                        color: "#AAD2E8", borderColor: "#AAD2E8"
-                                    }}>
-                                        Web3.js
-                                    </span>
-                                    <span className={styles.techItem} style={{
-                                        color: "#279FE3", borderColor: "#279FE3"
-                                    }}>
-                                        Swiper.js
                                     </span>
                                     <span className={styles.techItem} style={{
                                         color: "#E32727", borderColor: "#E32727"
@@ -177,10 +160,13 @@ const Projects = () => {
                                     <Button isBlack texto="See Code" icon={<FaGithub />} link={"https://github.com/fs4-equipo1/pancake-swap"} isPortfolio />
                                 </div>
                             </div>
-                        </div>
+                            </div>
                     </div>
-                </div>
+                
             </div>
+            <h1 className={styles.moreProjects}>
+                        More projects cooming soon.. 
+                </h1>
         </section>
     );
 };
