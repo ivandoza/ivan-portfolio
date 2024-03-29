@@ -6,6 +6,12 @@ header {
   overflow: hidden;
   z-index: 2000;
   background: transparent;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* primary navigation
@@ -99,6 +105,9 @@ header:before {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .rowBanner {
   display: inline-block;
@@ -108,6 +117,10 @@ header:before {
   padding-bottom: 30px;
   text-align: center;
   z-index: 10;
+  @media (max-width: 768px) {
+    vertical-align: none;
+    margin: 0;
+  }
 }
 
 .bannerText {
@@ -205,6 +218,9 @@ header:before {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .scrolldown a:hover {
   color: var(--orange);
@@ -213,14 +229,58 @@ header:before {
 
 .media {
   position: absolute;
-  left: 20px;
+  left: 150px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1408px) {
+    left: 50px; /* Cambia la posición a la izquierda */
+    bottom: 50px;
+    transform: translateY(0); /* Restablece la transformación vertical */
+    @media (max-width: 768px) {
+      position: relative; /* Cambia la posición a la izquierda */
+      flex-direction: row;
+      left: auto;
+      bottom: auto;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      gap: 50px;
+      transform: translateY(0); /* Restablece la transformación vertical */
+    }
+  }
 }
 
 .media li {
   color: var(--white);
   font-size: 36px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   cursor: pointer;
+  display: inline-block;
+  vertical-align: middle; /* Alinear verticalmente al centro */
+  margin-right: 20px; /* Espacio entre cada ícono */
+  position: relative;
+  @media (max-width: 768px) {
+    display: flex;
+    margin: 0;
+  }
+}
+.media li:hover .tooltip {
+  display: block; /* Mostrar el tooltip al hacer hover */
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.tooltip {
+  display: none; /* Ocultar el tooltip por defecto */
+  position: absolute;
+  left: calc(100% + 10px); /* Posiciona el tooltip a la derecha del ícono */
+  top: 50%; /* Ajusta la posición vertical al centro */
+  transform: translateY(-50%); /* Ajusta la posición vertical al centro */
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 3px;
 }
 
 .media li:hover {

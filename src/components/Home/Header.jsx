@@ -150,13 +150,25 @@ function Header() {
                 <Fade bottom duration={2500}>
                   <ul className={styles.media}>
                     <li>
-                      <PiGithubLogo />
+                    <PiGithubLogo />
+                      <span className={styles.tooltip}>
+                     
+                      Github
+                      </span>
                     </li>
                     <li>
-                      <PiLinkedinLogo />
+                    <PiLinkedinLogo />
+                    <span className={styles.tooltip}>
+                      
+                      Linkedin
+                      </span>
                     </li>
                     <li>
-                      <PiTelegramLogo />
+                    <PiTelegramLogo />
+                    <span className={styles.tooltip}>
+                      
+                      Telegram
+                      </span>
                     </li>
                   </ul>
                 </Fade>
@@ -171,6 +183,7 @@ function Header() {
             </p>
           </>
         )}
+        
       </header>
       {isContactOpen && <Modal onClose={() => setIsContactOpen(false)} />}
     </Home>
