@@ -13,6 +13,7 @@ const Button = ({
   icon,
   onClick,
   link,
+  openInNewTab,
 }) => {
   const className = cx({
     button: true,
@@ -22,8 +23,9 @@ const Button = ({
     web: isWeb,
     portfolio: isPortfolio,
   });
+  const target = openInNewTab ? "_blank" : "_self";
   return (
-    <a className={className} onClick={onClick} href={link}>
+    <a className={className} onClick={onClick} target={target} href={link}>
       {texto}
       {icon}
     </a>

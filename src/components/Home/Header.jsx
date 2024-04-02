@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import styles from "./Header.module.scss";
 import Button from "../Buttons/Button";
@@ -12,27 +12,35 @@ import {
 } from "react-icons/pi";
 import Modal from "../ContactModal/Modal";
 import Home from "./Home";
+import { Link, animateScroll as scroll } from "react-scroll";
+import { DataContext } from "../../DataContext";
 
 function Header() {
-  // if (!props.data) return null;
+  const { portfolioData } = useContext(DataContext);
 
-  // const { project, github, name, description } = props.data
-  const handleHomeClick = (event) => {
-    event.preventDefault(); // Evitar que el navegador siga el enlace
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Desplazamiento suave
-    });
-  };
+  const { social } = portfolioData || {};
+  const { linkedin, github, telegram } = social || {};
 
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isNavBlack, setIsNavBlack] = useState(false);
+  const [current, setCurrent] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       const headerHeight = document.querySelector("header").offsetHeight;
       const scrollPosition = window.scrollY;
+      const sections = document.querySelectorAll("section");
+      let found = false;
+
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (!found && window.scrollY < top + height) {
+          setCurrent(section.id);
+          found = true;
+        }
+      });
 
       if (
         scrollPosition > headerHeight * 0.2 &&
@@ -52,138 +60,154 @@ function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <Home>
-      <header id="#home">
-        {!isContactOpen && (
-          <>
-            {isNavbarVisible && (
-              <nav
-                id="nav-wrap"
-                className={isNavBlack === true ? styles.opaque : styles.navWrap}
-              >
-                <a className={styles.mobileBtn} href="#nav-wrap" title="Show navigation">
-        Show navigation
-      </a>
-      <a className={styles.mobileBtn} href="#home" title="Hide navigation">
-        Hide navigation
-      </a>
-                <ul id="nav" className={styles.nav}>
-                  <li className={styles.current}>
-                    <a
-                      className={styles.smoothscroll}
-                      href="#home"
-                      onClick={handleHomeClick}
-                    >
-                      Home
-                    </a>
-                  </li>
+      <header id="home">
+        <>
+          {isNavbarVisible && (
+            <nav
+              id="nav-wrap"
+              className={isNavBlack === true ? styles.opaque : styles.navWrap}
+            >
+              <ul id="nav" className={styles.nav}>
+                <li
+                  className={
+                    current != "about" &&
+                    current != "projects" &&
+                    current != "contact"
+                      ? styles.current
+                      : ""
+                  }
+                >
+                  <a
+                    className={styles.smoothscroll}
+                    href="#home"
+                    onClick={scrollToTop}
+                  >
+                    Home
+                  </a>
+                </li>
 
-                  <li>
-                    <a className={styles.smoothscroll} href="#about">
-                      About
-                    </a>
-                  </li>
+                <li className={current === "about" ? styles.current : ""}>
+                  <Link
+                    className={styles.smoothscroll}
+                    activeClass="active"
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={900}
+                  >
+                    Sobre mi
+                  </Link>
+                </li>
 
-                  <li>
-                    <a className={styles.smoothscroll} href="#resume">
-                      Resume
-                    </a>
-                  </li>
+                <li className={current === "projects" ? styles.current : ""}>
+                  <Link
+                    className={styles.smoothscroll}
+                    activeClass="active"
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={900}
+                  >
+                    Proyectos
+                  </Link>
+                </li>
 
-                  <li>
-                    <a className={styles.smoothscroll} href="#portfolio">
-                      Works
-                    </a>
-                  </li>
+                <li className={current === "contact" ? styles.current : ""}>
+                  <a
+                    className={styles.smoothscroll}
+                    href="#contact"
+                    onClick={() => {
+                      setIsContactOpen(true);
+                    }}
+                  >
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          )}
 
+          <div className={styles.rowBanner}>
+            <div className={styles.bannerText}>
+              <Fade bottom>
+                <h1 className={styles.nombre}>IVÁN DORTA.</h1>
+              </Fade>
+              <Fade bottom duration={1200}>
+                <h3>Full Stack Web Developer</h3>
+              </Fade>
+              <hr />
+              <Fade bottom duration={2000}>
+                <ul className={styles.mainButtons}>
                   <li>
-                    <a
-                      className={styles.smoothscroll}
-                      href="#contact"
+                    <Button
+                      texto="Descargar CV"
+                      icon={<PiDownloadSimpleBold />}
+                      isBlue
+                    />
+                  </li>
+                  <li>
+                    <Button
+                      texto="Contactar"
+                      icon={<PiEnvelopeSimple />}
+                      isBlue
                       onClick={() => setIsContactOpen(true)}
-                    >
-                      Contact
-                    </a>
+                    />
                   </li>
                 </ul>
-              </nav>
-            )}
-
-            <div className={styles.rowBanner}>
-              <div className={styles.bannerText}>
-                <Fade bottom>
-                  <h1 className={styles.nombre}>IVÁN DORTA.</h1>
-                </Fade>
-                <Fade bottom duration={1200}>
-                  <h3>
-                    {/* {description}. */}
-                    Soy un full stack software developer, apasionado del
-                    frontend y con conocimientos de backend. nacido en santa
-                    cruz de tenerife
-                  </h3>
-                </Fade>
-                <hr />
-                <Fade bottom duration={2000}>
-                  <ul className={styles.social}>
-                    <li>
-                      <Button
-                        texto="Download CV"
-                        icon={<PiDownloadSimpleBold />}
-                        isBlue
-                      />
-                    </li>
-                    <li>
-                      <Button
-                        texto="Contact Me"
-                        icon={<PiEnvelopeSimple />}
-                        isBlue
-                        onClick={() => setIsContactOpen(true)}
-                      />
-                    </li>
-                  </ul>
-                </Fade>
-                <Fade bottom duration={2500}>
-                  <ul className={styles.media}>
-                    <li>
-                    <PiGithubLogo />
-                      <span className={styles.tooltip}>
-                     
-                      Github
-                      </span>
-                    </li>
-                    <li>
-                    <PiLinkedinLogo />
-                    <span className={styles.tooltip}>
-                      
-                      Linkedin
-                      </span>
-                    </li>
-                    <li>
-                    <PiTelegramLogo />
-                    <span className={styles.tooltip}>
-                      
-                      Telegram
-                      </span>
-                    </li>
-                  </ul>
-                </Fade>
-              </div>
+              </Fade>
+              <Fade bottom duration={2500}>
+                <ul className={styles.media}>
+                  <li>
+                    <a href={github} target="_blank">
+                      <PiGithubLogo />
+                    </a>
+                    <span className={styles.tooltip}>Github</span>
+                  </li>
+                  <li>
+                    <a href={linkedin} target="_blank">
+                      <PiLinkedinLogo />
+                    </a>
+                    <span className={styles.tooltip}>Linkedin</span>
+                  </li>
+                  <li>
+                    <a href={telegram} target="_blank">
+                      <PiTelegramLogo />
+                    </a>
+                    <span className={styles.tooltip}>Telegram</span>
+                  </li>
+                </ul>
+              </Fade>
             </div>
-            <p className={styles.scrolldown}>
-              <a className={styles.smoothscroll} href="#about">
-                <i className={styles.downCircle}>
-                  <FaChevronCircleDown />
-                </i>
-              </a>
-            </p>
-          </>
-        )}
-        
+          </div>
+          <div className={styles.scrolldown}>
+            <Link
+              className={styles.smoothscroll}
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              <i className={styles.downCircle}>
+                <FaChevronCircleDown />
+              </i>
+            </Link>
+          </div>
+        </>
       </header>
       {isContactOpen && <Modal onClose={() => setIsContactOpen(false)} />}
     </Home>

@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.scss";
-import Button from "../Buttons/Button";
 import { SlClose } from "react-icons/sl";
 import { GoCopy } from "react-icons/go";
 import ModalMsg from "../ModalMsg/ModalMsg";
+import { PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
+import Background from "../Background/Background";
+import { DataContext } from "../../DataContext";
 
 const Modal = ({ onClose }) => {
   useEffect(() => {
@@ -22,6 +24,11 @@ const Modal = ({ onClose }) => {
       document.removeEventListener("keydown", handleEscapeKey);
     };
   }, []);
+
+  const { portfolioData } = useContext(DataContext);
+
+  const { social } = portfolioData || {};
+  const { linkedin, github, telegram } = social || {};
 
   //Form
 
@@ -98,10 +105,12 @@ const Modal = ({ onClose }) => {
   };
 
   return (
-    <div className={styles.modalOverlay}>
+    <div id="contact" className={styles.modalOverlay}>
+      <Background />
       <div className={styles.modalContent}>
         <div className={styles.header}>
-          Contact
+          <span />
+          <h3>Contacta conmigo:</h3>
           <button className={styles.close} onClick={onClose}>
             <span className={styles.closeSVG}>
               <SlClose />
@@ -146,12 +155,24 @@ const Modal = ({ onClose }) => {
               <button type="submit">Enviar</button>
             </div>
             {successMessage && (
-              <ModalMsg type="alert" closeMsg={() => { setShowModal(false); setSuccessMessage(false)}}>
+              <ModalMsg
+                type="alert"
+                closeMsg={() => {
+                  setShowModal(false);
+                  setSuccessMessage(false);
+                }}
+              >
                 ¡Mensaje enviado! Te responderé lo antes posible.
               </ModalMsg>
             )}
             {errorMessage && (
-              <ModalMsg type="alert" closeMsg={() => {setShowModal(false); setErrorMessage(false)}}>
+              <ModalMsg
+                type="alert"
+                closeMsg={() => {
+                  setShowModal(false);
+                  setErrorMessage(false);
+                }}
+              >
                 ¡El mensaje no se pudo enviar! Por favor, intenta nuevamente más
                 tarde.
               </ModalMsg>
@@ -159,17 +180,14 @@ const Modal = ({ onClose }) => {
           </form>
 
           <div className={styles.email}>
-            Or contact me to this email:
-            <div className={styles.emailBox}>
+            <div
+              className={styles.emailBox}
+              onClick={(e) =>
+                copyToClipboard(document.getElementById("emailText").innerText)
+              }
+            >
               <p id="emailText">ivandoza@gmail.com</p>
-              <GoCopy
-                className={styles.copyIcon}
-                onClick={(e) => 
-                  copyToClipboard(                   
-                    document.getElementById("emailText").innerText
-                  )
-                }
-              />
+              <GoCopy className={styles.copyIcon} />
             </div>
             {showModal && (
               <ModalMsg closeMsg={() => setShowModal(false)}>
@@ -177,11 +195,24 @@ const Modal = ({ onClose }) => {
               </ModalMsg>
             )}
           </div>
+          <ul className={styles.media}>
+            <li>
+              <a href={github} target="_blank">
+                <PiGithubLogo />
+              </a>
+            </li>
+            <li>
+              <a href={linkedin} target="_blank">
+                <PiLinkedinLogo />
+              </a>
+            </li>
+            <li>
+              <a href={telegram} target="_blank">
+                <PiTelegramLogo />
+              </a>
+            </li>
+          </ul>
         </div>
-
-        {/* <div className={styles.closeBottom}>
-          <Button isBlue texto="Close" onClick={onClose} />
-        </div> */}
       </div>
     </div>
   );

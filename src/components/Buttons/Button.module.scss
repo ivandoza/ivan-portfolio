@@ -31,16 +31,14 @@
 }
 
 .blue {
-  background-color: #1fc7d4;
   color: radial-gradient(ellipse at bottom, #121d29 0%, #090a0f 100%);;
-  background-color: #c6c0ccf6;
+  background-color: var(--grey);
   box-shadow: rgba(14, 14, 44, 0.4) 0px -1px 0px 0px inset;
 
   &:hover{
     background: #ff5e33;
     background: var(--gradient-orange);
-    color: white;
-
+    color: var(--white);
   }
 }
 

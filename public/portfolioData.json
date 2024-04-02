@@ -1,0 +1,26 @@
+{
+    "social": {
+      "linkedin":"https://linkedin.com/in/ivandoza/",
+      "github":"https://github.com/ivandoza",
+      "telegram":"https://github.com/ivandoza"
+    },
+    "info": {
+       "message":"Hi, I'm Iván",
+       "profile": "Software Developer, apasionado por el desarrollo Frontend ♥️. Me encanta crear sitios web que brinden una experiencia de usuario única y satisfactoria. Puedes ver algunos de mis proyectos en la sección de proyectos. Soy una persona autodidacta, responsable y comprometida con mi trabajo. Constantemente estoy aprendiendo nuevas tecnologías y herramientas para mejorar mis habilidades. Si tiene alguna pregunta o algun comentario no dude en contactarme.",
+       "experience": "NADA",
+       "Studies":"NADA"
+    },
+    "projects": {
+        "pancake": {
+            "name": "PancakeSwap.finance",
+            "description": "HOLA",
+            "github":"git",
+            "link":"link"
+        },
+        "portfolio": {
+            "name": "This Portfolio",
+            "description": "HOLA",
+            "github":"git"
+        }
+    }
+}

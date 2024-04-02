@@ -7,46 +7,54 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3000;
-  background-color: rgba(0, 0, 0, 0.158);
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.418);
   pointer-events: none;
 }
 
+//------------------------Modal Content--------------------------//
 .modalContent {
   position: relative;
   z-index: 3001;
   pointer-events: auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.856);
   color: var(--colors-text);
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 22px;
   width: 485px;
   height: max-content;
   position: relative;
-  text-decoration-color: red;
-}
-
-.close {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: max-content;
-  font-size: 25px;
-  cursor: pointer;
-  color: var(--orange);
 }
 
 .header {
   height: 74px;
-  object-fit: cover;
   color: var(--colors-text);
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+
+.header h3 {
+  border-bottom: 2px solid var(--orange);
+}
+
+.close {
+  width: max-content;
+  font-size: 25px;
+  cursor: pointer;
+  color: var(--orange);
+  margin-bottom: 18px;
+  transition: 0.2s all;
+  &:hover {
+    color: var(--orange);
+    transform: scale(1.1);
+  }
+}
+
+//------------------------Form--------------------------//
+
 .formContainer {
   width: inherit;
   height: max-content;
@@ -59,42 +67,67 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
+  gap: 15px;
+  width: 95%;
   justify-content: center;
   align-items: center;
   font-family: var(--font);
   input,
   textarea {
-    min-height: 30px;
-    border: 1px solid black;
+    min-height: 35px;
+    outline: 1px solid var(--black);
+    border: none;
     background-color: transparent;
     border-radius: 8px;
     padding: 5px 8px;
-    width: 100%;
+    width: 95%;
     font-family: inherit;
     box-sizing: border-box;
+    color: var(--black);
+    font-size: 15px;
   }
-
   textarea {
     max-height: 150px;
     resize: vertical;
   }
+
+  textarea::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.226);
+  }
+
+  textarea::-webkit-scrollbar-thumb {
+    background-color: var(--orange);
+    border-radius: 6px;
+  }
+
   button {
-    border: 1px solid black;
+    background: var(--orange);
+    background: var(--gradient-orange);
+    color: var(--black);
+    border: 1px solid var(--black);
     border-radius: 8px;
-    padding: 4px 30px;
+    padding: 6px 30px;
     left: 50%;
     right: 50%;
     font-size: 14px;
-  transition: 0.2s ease;
+    transition: 0.2s ease;
     &:hover {
-      opacity: 0.9;
-      background: #ff5e33;
-    background: var(--gradient-orange);
+      opacity: 0.8;
     }
   }
 }
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--orange);
+}
+
+//------------------------Copy email--------------------------//
+
 .email {
   display: flex;
   flex-direction: row;
@@ -103,29 +136,43 @@
   gap: 5px;
   margin: 30px 0px;
   font-size: 15px;
+  color: var(--black);
+  opacity: 0.9;
 }
-.emailBox{
+.emailBox {
   display: flex;
   width: 200px;
   justify-content: space-between;
   align-items: center;
-  background-color: #e9eaeb;
+  background-color: var(--white);
   border: solid black 1px;
   border-radius: 10px;
   padding: 4px 15px;
-}
-
-.copyIcon {
   cursor: pointer;
-  &:hover {
+  &:hover .copyIcon {
     color: var(--orange);
   }
 }
 
-.closeBottom {
-  align-self: flex-end;
-  margin-top: 10px;
-  bottom: 6px;
-  width: max-content;
-  right: 5%;
+.copyIcon {
+  font-size: 18px;
+}
+
+//------------------------Social media links--------------------------//
+
+.media {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--orange);
+  font-size: 25px;
+  cursor: pointer;
+}
+.media li:hover {
+  color: var(--orange);
+  opacity: 0.9;
+  transform: scale(1.1);
 }

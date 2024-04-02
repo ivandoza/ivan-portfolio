@@ -1,30 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from './Footer.module.scss'
+import { FaChevronCircleUp } from "react-icons/fa";
+import { Link, animateScroll as scroll } from "react-scroll";
+import {
+  PiGithubLogo,
+  PiLinkedinLogo,
+  PiTelegramLogo,
+} from "react-icons/pi";
+import { DataContext } from "../../DataContext";
 
 function Footer() {
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+  const { portfolioData } = useContext(DataContext);
+
+  const { social } = portfolioData || {};
+  const { linkedin, github, telegram } = social || {};
+console.log(portfolioData)
     return (
       <footer className={styles.footer}>
-        <div className={styles.row}>
-            <div className={styles.twelveColumns}>
-              <ul className={styles.socialLinks}></ul>
-
-              <ul className={styles.copyright}>
-                <li>&copy; Copyright 2021 Nordic Giant</li>
-                <li>
-                  Design by{" "}
-                  <a title="Styleshout" href="http://www.styleshout.com/">
-                    Styleshout
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-          <div id="go-top" className={styles.copyright}>
-            <a className={styles.smoothscroll} title="Back to Top" href="#home">
-              <i className={styles.iconUpOpen}></i>
-            </a>
+        <div className={styles.scrollUp}>
+          <Link 
+                className={styles.smoothscroll}
+                  activeClass="active"
+                  to="home"
+                  spy={true}
+                  smooth={true}
+                  offset={0}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
+                  <i className={styles.downCircle}>
+                  <FaChevronCircleUp />
+                  </i>
+                </Link>
           </div>
-        </div>
+              <div className={styles.copyright}>
+                <p>&copy; Design by <span>Iván Dorta</span></p>
+            </div>
+            <ul className={styles.media}>
+                    <li><a href={github} target="_blank"><PiGithubLogo /></a>
+                      
+                    </li>
+                    <li><a href={linkedin} target="_blank"><PiLinkedinLogo /></a>
+                      
+                    </li>
+                    <li><a href={telegram} target="_blank"><PiTelegramLogo /></a>
+                      
+                    </li>
+                  </ul>
+          
       </footer>
     );
   }

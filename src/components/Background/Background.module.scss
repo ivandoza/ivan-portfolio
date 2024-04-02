@@ -575,12 +575,14 @@
 }
 
 $shooting-time: 22000ms;
-
+@media (max-width: 900px) {
+  $shooting-time: 29000ms;
+}
 .starsContainer {
   position: relative;
   width: 290%;
   height: 90%;
-  top: -490px;
+  top: -320px;
   right: 750px;
   transform: rotateZ(155deg);
   z-index: 1;
@@ -591,7 +593,7 @@ $shooting-time: 22000ms;
   position: relative;
   width: 290%;
   height: 90%;
-  top: -1200px;
+  top: -1100px;
   right: 600px;
   transform: rotateZ(150deg);
 }
@@ -767,5 +769,16 @@ $shooting-time: 22000ms;
 
   100% {
     transform: translateX(2500px);
+  }
+}
+
+@media (max-width: 900px) {
+  .starsContainer {
+    top: -100px;
+    right: 100px;
+  }
+  .starsContainer2 {
+    top: -830px;
+    right: 100px;
   }
 }

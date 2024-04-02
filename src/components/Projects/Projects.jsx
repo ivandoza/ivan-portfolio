@@ -3,7 +3,7 @@ import styles from './Projects.module.scss'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import pancakeProject from "../../assets/pancakeswap.png";
-import BackgroundAnimation from "../../Background/Background";
+import BackgroundAnimation from "../Background/Background";
 import Button from "../Buttons/Button";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
@@ -13,7 +13,7 @@ const Projects = () => {
         AOS.init({ duration: 500 });
     }, []);
     return (
-        <section className={styles.projects}>
+        <section id="projects" className={styles.projects}>
             <BackgroundAnimation containerClassName={styles.fondo} />
             {/* <div className=" bg-gradient-to-r from-pink-300 via-green-300 to-yellow-200 max-w-7xl h-1 rounded-xl m-auto mt-16 mb-20"></div> */}
         
@@ -26,22 +26,20 @@ const Projects = () => {
             <div className={styles.cards}>
                 <div
                     data-aos="zoom-in"
-                    data-aos-anchor-placement="bottom-bottom"
-                    className={styles.tarjeta}
+                    data-aos-anchor-placement="center-bottom"
+                    className={styles.card}
                 >
-                    {" "}
-                    <div className={styles.gradientBorder}></div>
-                    <div className={styles.gradientborder2}></div>
                     <div className={styles.cardContent}>
                     
                         
                             {" "}
+                            <div className={styles.cardImage}>
                             <img
-                                className={styles.cardImage}
-                                src={pancakeProject}
+                                                              src={pancakeProject}
                                 alt="website_image"
                                 width="300px"
                             />
+                            </div>
                             <div className={styles.cardText}>
                                 <h5 className={styles.cardTitle}>
                                     PancakeSwap.finance
@@ -97,8 +95,8 @@ const Projects = () => {
                                     transactions.
                                 </p>
                                 <div className={styles.btnCont}>
-                                    <Button isBlack texto="See Code" icon={<FaGithub />} link={"https://github.com/fs4-equipo1/pancake-swap"}/>
-                                    <Button isWeb texto="View Web" icon={<TbExternalLink />} link={"https://pancake-swap-eta.vercel.app/"} />
+                                    <Button isBlack texto="See Code" icon={<FaGithub />} link={"https://github.com/fs4-equipo1/pancake-swap"} openInNewTab />
+                                    <Button isWeb texto="View Web" icon={<TbExternalLink />} link={"https://pancake-swap-eta.vercel.app/"} openInNewTab />
                                 </div>
                             </div>
                             </div>
@@ -106,12 +104,9 @@ const Projects = () => {
                 </div>
                 <div
                     data-aos="zoom-in"
-                    data-aos-anchor-placement="bottom-bottom"
-                    className={styles.tarjeta}
+                    data-aos-anchor-placement="center-bottom"
+                    className={styles.card}
                 >
-                    {" "}
-                    <div className={styles.gradientBorder}></div>
-                    <div className={styles.gradientborder2}></div>
                     <div className={styles.cardContent}>
                     
                             {" "}
@@ -157,7 +152,7 @@ const Projects = () => {
                                     transactions.
                                 </p>
                                 <div className={styles.btnCont}>
-                                    <Button isBlack texto="See Code" icon={<FaGithub />} link={"https://github.com/fs4-equipo1/pancake-swap"} isPortfolio />
+                                    <Button isBlack texto="See Code" icon={<FaGithub />} link={"https://github.com/fs4-equipo1/pancake-swap"} isPortfolio openInNewTab />
                                 </div>
                             </div>
                             </div>

@@ -27,7 +27,7 @@ function Skills() {
 }, []);
   return (
     <div className={styles.skills}>
-      <h2>Skills</h2>
+      <h2>My Skills:</h2>
       <div className={styles.scroll}>
         <div>
           <span className={styles.html}>

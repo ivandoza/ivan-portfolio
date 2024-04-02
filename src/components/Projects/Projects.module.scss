@@ -26,18 +26,31 @@
     flex-direction: row;
     gap: 60px;
     justify-content: center;
-    height: 560px;
+    height: 550px;
+    
 }
 
-.tarjeta {
-    
-    max-width: 30%;
-    min-width: 470px;
+.card {
+    width: 450px;
     background-color: var(--grey);
-    border-radius: .5rem;
+    --borderWidth: 3px;
+    border-radius: .8rem;
     overflow: hidden;
     padding-bottom: 20px;
     height: 100%;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.534);
+}
+
+
+
+.cardImage {
+    transition: all 0.4s ease-out;
+}
+
+.card:hover {
+    .cardImage {
+    transform: scale(1.1);
+    }
 }
 
 .title, .moreProjects {
@@ -53,6 +66,7 @@
     --color-four: #ff4240;
     font-size: 40px;
     margin-bottom: 100px;
+    text-align: center;
     font-family: var(--fontBold);
     background: linear-gradient(
         90deg,
@@ -82,6 +96,7 @@
   }
 .moreProjects{
     margin-top: 120px;
+    text-align: center;
 }
 
 
@@ -94,7 +109,14 @@
 
 .cardImage {
     width: 100%;
-    max-height: 250px;
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+}
+
+.cardImage img {
+    width: 100%;
+    object-fit: cover;
 }
 
 .cardText {
@@ -109,7 +131,7 @@ height: 100%;
 
 .cardTitle {
     font-size: 20px;
-    margin-top: 13px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -121,7 +143,6 @@ height: 100%;
     width: 100%;
     flex-wrap: wrap;
     margin: 5px;
-    
     align-items: center;
     
 }
@@ -129,7 +150,7 @@ height: 100%;
 .techItem {
     height: 18px;
     width: max-content;
-    padding: 3px 8px;
+    padding: 2px 7px;
     border: solid 1px black;
     border-radius: 3px;
     background-color: rgb(17 24 39);
@@ -151,5 +172,51 @@ height: 100%;
 }
 .btnCont a {
     height: max-content;
+}
+
+@media (max-width: 1111px){
+    .cards {height: 540px;}
+    .card {
+        width: 430px;
+    }
+    .cardImage {
+        max-height: 180px;
+    }
+}
+@media (max-width: 500px) {
+    .cards {
+        font-size: 15px;
+        height: max-content;
+    
+    }
+    .card {
+        width: 350px;
+
+    }
+    .cardText {
+        justify-content: center;
+        align-items: center;
+    }
+    .btnCont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 8px 5px;
+        margin-top: auto;
+        width: 70%;
+        box-sizing: border-box;
+    }
+    .btnCont a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .cards {
+        flex-direction: column;
+        height: max-content;
+    }
 }
 

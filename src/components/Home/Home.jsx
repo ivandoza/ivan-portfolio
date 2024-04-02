@@ -1,4 +1,4 @@
-import Background from "../../Background/Background";
+import Background from "../Background/Background";
 
 function Home({ children }) {
   return (
