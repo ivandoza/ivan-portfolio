@@ -113,6 +113,7 @@
   margin: 10px;
   gap: 120px;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 .front h3,
@@ -147,5 +148,9 @@
   .scroll {
     mask-image: none;
     max-width: 100%;
+  }
+  .skillsList {
+    justify-content: center;
+    gap: 70px;
   }
 }

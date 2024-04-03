@@ -66,6 +66,9 @@ header:before {
   -o-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
+  @media (max-width: 600px) {
+    font-size: 11px;
+    }
 }
 
 .nav li.current a,

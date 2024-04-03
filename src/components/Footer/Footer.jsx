@@ -19,7 +19,7 @@ function Footer() {
   const { social } = portfolioData || {};
   const { linkedin, github, telegram } = social || {};
     return (
-      <footer className={styles.footer}>
+      <section id="footer" className={styles.footer}>
         <div className={styles.scrollUp}>
           <Link 
                 className={styles.smoothscroll}
@@ -37,7 +37,7 @@ function Footer() {
                 </Link>
           </div>
               <div className={styles.copyright}>
-                <p>&copy; Diseñado por <span>Iván Dorta</span></p>
+                <p>&copy; Diseñado por <span>Iván Dorta.</span></p>
             </div>
             <ul className={styles.media}>
                     <li><a href={github} target="_blank"><PiGithubLogo /></a>
@@ -51,7 +51,7 @@ function Footer() {
                     </li>
                   </ul>
           
-      </footer>
+      </section>
     );
   }
 

@@ -2,7 +2,7 @@ import Background from "../Background/Background";
 
 function Home({ children }) {
   return (
-    <section className="Home">
+    <section id="home" className="home">
       <Background />
       {children}
     </section>

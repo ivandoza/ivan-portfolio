@@ -2,7 +2,7 @@
   "social": {
     "linkedin": "https://linkedin.com/in/ivandoza/",
     "github": "https://github.com/ivandoza",
-    "telegram": "https://github.com/ivandoza"
+    "telegram": "https://t.me/ivdoza"
   },
   "info": {
     "message": "Hola, soy Iván",
@@ -10,10 +10,14 @@
     "experience": "Durante mi trayectoria, he llevado a cabo proyectos web tanto de manera colaborativa en equipos de trabajo remotos, como de forma individual. Aunque aún no cuento con experiencia profesional formal, he adquirido habilidades valiosas y experiencia práctica a través de estos proyectos.",
     "studies": "Poseo un certificado de Full Stack developer obtenido tras completar un bootcamp de 6 meses con Develhope. Durante esta experiencia, trabajé con metodologías ágiles y con tecnologías como Javascript, React, Typescript, CSS, Node.js, entre otras. Además, he complementado mi formación con otros cursos de manera autodidacta, que me han permitido expandir mis conocimientos de manera continua y autónoma."
   },
+  "skills": {
+    "frontend": ["JavaScript", "TypeScript", "React.js", "Tailwind css", "Sass"],
+    "backend": ["Node.js", "Express.js", "PostgreSQL", "Ethereum", "Web3.js"]
+  },
   "projects": {
     "pancake": {
       "name": "PancakeSwap.finance",
-      "description": "HOLA",
+      "description": "Proyecto frontend y backend de un exchange descentralizado, desarrollado principalmente con React.js, entre sus funcionalidades destaca la posibilidad de conectar la billetera Metamask, cambiar entre varias redes blockchain y ver nuestro balance de criptos. La página muestra precios y graficas en tiempo real, ofrece un cambio de tema (claro y oscuro), y la posibilidad de cambiar el idioma. Su diseño es responsive, pudiendo adaptarse a versión web, tablet y móvil.",
       "items": [
         "React",
         "JavaScript",
@@ -30,19 +34,14 @@
     },
     "portfolio": {
       "name": "Mi web personal",
-      "description": "HOLA",
+      "description": "Esta web portafolio, elaborada con React.js, presenta animaciones perfectas utilizando la biblioteca AOS y CSS. Entre sus funcionalidades he implementado el cambio de idioma y un formulario de contacto. Está diseñada con Sass, ofrece una plataforma interactiva y visualmente atractiva para mostrar trabajos y habilidades creativas.",
       "items": [
         "React",
         "JavaScript",
-        "TypeScript",
         "Sass",
-        "ETH Blockchain",
-        "Web3.js",
-        "Swiper.js",
-        "Rest API",
         "Git"
       ],
-      "github": "https://github.com/fs4-equipo1/pancake-swap/"
+      "github": "https://github.com/ivandoza/ivan-portfolio"
     }
   }
 }

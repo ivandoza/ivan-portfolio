@@ -32,9 +32,26 @@ function About() {
     };
   }, []);
 
+  const [isActiveImg, setIsActiveImg] = useState(false);
+
+  const toggleActive = () => {
+    setIsActiveImg(!isActiveImg);
+    if (!isActiveImg) {
+      setTimeout(() => {
+        setIsActiveImg(false);
+      }, 2000);
+    }
+  };
+
+  const handleClickOutside = () => {
+    if (isActiveImg) {
+      setIsActiveImg(false);
+    }
+  };
+
   return (
     <section id="about" className={styles.about}>
-      <div className={styles.content}>
+      <div className={styles.content} onClick={handleClickOutside}>
         <h2>Sobre mi:</h2>
         <div className={styles.profile}>
           <div className={styles.avatarContainer}>
@@ -44,7 +61,8 @@ function About() {
                   <div
                     className={`${styles.storyImg} ${
                       animate ? styles.animate : ""
-                    }`}
+                    } ${isActiveImg ? styles.activeImg : styles.imagen}`}
+                    onClick={toggleActive}
                   >
                     <img src={profileImg} alt="Ivan" type="png" />
                   </div>
@@ -63,7 +81,7 @@ function About() {
             studies={studies}
           />
         </div>
-        <Fade duration={1000} style={{ width: "100%"}}>
+        <Fade duration={1000} style={{ width: "100%" }}>
           <Skills />
         </Fade>
       </div>

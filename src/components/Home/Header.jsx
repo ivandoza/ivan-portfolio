@@ -69,6 +69,16 @@ function Header() {
     scroll.scrollToTop();
   };
 
+  const handleDownload = () => {
+    const pdfUrl = "/CV_Ivan_Dorta.pdf";
+
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    link.click();
+  };
   return (
     <Home>
       <header id="home">
@@ -156,6 +166,7 @@ function Header() {
                       texto="Descargar CV"
                       icon={<PiDownloadSimpleBold />}
                       isBlue
+                      onClick={handleDownload}
                     />
                   </li>
                   <li>
@@ -200,7 +211,7 @@ function Header() {
               spy={true}
               smooth={true}
               offset={0}
-              duration={500}
+              duration={2500}
             >
               <i className={styles.downCircle}>
                 <FaChevronCircleDown />
