@@ -32,19 +32,21 @@
 
 .card {
     width: 450px;
-    background-color: var(--grey);
+    background-color: var(--white);
     --borderWidth: 3px;
     border-radius: .8rem;
     overflow: hidden;
     padding-bottom: 20px;
     height: 100%;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.534);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.534);
+    border: 2px solid var(--orange);
 }
 
 
 
 .cardImage {
     transition: all 0.4s ease-out;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.274);
 }
 
 .card:hover {
@@ -133,6 +135,7 @@ height: 100%;
     font-size: 20px;
     margin-top: 20px;
     text-align: center;
+    color: var(--orange);
 }
 
 .tech {
@@ -154,6 +157,9 @@ height: 100%;
     border: solid 1px black;
     border-radius: 3px;
     background-color: rgb(17 24 39);
+    color: var(--white);
+    font-size: 15px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.274);
 }
 
 .cardParagraph {

@@ -18,7 +18,6 @@ function Footer() {
 
   const { social } = portfolioData || {};
   const { linkedin, github, telegram } = social || {};
-console.log(portfolioData)
     return (
       <footer className={styles.footer}>
         <div className={styles.scrollUp}>
@@ -38,7 +37,7 @@ console.log(portfolioData)
                 </Link>
           </div>
               <div className={styles.copyright}>
-                <p>&copy; Design by <span>Iván Dorta</span></p>
+                <p>&copy; Diseñado por <span>Iván Dorta</span></p>
             </div>
             <ul className={styles.media}>
                     <li><a href={github} target="_blank"><PiGithubLogo /></a>
