@@ -118,7 +118,7 @@ const Modal = ({ onClose }) => {
           </button>
         </div>
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit} className={styles.form} netlify>
+          <form onSubmit={handleSubmit} className={styles.form} method="POST" data-netlify="true">
             <input
               type="text"
               placeholder="Nombre"
