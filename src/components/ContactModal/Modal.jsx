@@ -52,7 +52,7 @@ const Modal = ({ onClose }) => {
 
     const myForm = event.target;
     const formData = new FormData(myForm);
-
+console.log(formData)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -106,7 +106,9 @@ const Modal = ({ onClose }) => {
             className={styles.form}
             method="POST"
             data-netlify="true"
+            name="contactForm"
           >
+            <input type="hidden" name="form-name" value="contactForm" />
             <input
               type="text"
               placeholder="Nombre"
