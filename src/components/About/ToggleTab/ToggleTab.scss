@@ -1,61 +1,67 @@
 /* Estilo para las pestañas */
 .tabs {
-    padding: 10px 20px;
-    cursor: pointer;
-    border-bottom: 2px solid #0e161f ;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid #0e161f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
 
-  }
-  
-  .content {
-    padding: 20px 0px;
-    display: none;
-  }
-  
-  .active-tabs {
-    color: white;
-    font-weight: bold;
-    background-color: #0e161f;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .active-content {
-    display: block;
-  }
+.toggle-icon {
+  font-size: 18px;
+  margin-right: 4px;
+}
 
- 
-  
-  .container {
-    width: 500px;
-    height: 260px;
-    padding: 20px;
+.content {
+  padding: 20px 0px;
+  display: none;
+}
 
-  }
+.active-tabs {
+  color: white;
+  font-weight: bold;
+  background-color: #0e161f;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
+.active-content {
+  display: block;
+}
+
+.active-content p {
+  display: block;
+  line-height: 1.4;
+}
+
+.container {
+  width: 500px;
+  height: 260px;
+  padding: 20px;
+}
+
+.bloc-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1111px) {
   .bloc-tabs {
-    display: flex;
-    flex-direction: row;
     justify-content: left;
-    margin-bottom: 20px;
   }
+  .container {
+    padding: 0;
+    width: 370px;
+    height: max-content;
+  }
+}
 
-  @media (max-width: 1111px){
-    .bloc-tabs{
-      justify-content: left;
-    }
-    .container {
-      padding: 0;
-      width: 370px;
-      height: max-content;
-    }
+@media (max-width: 1111px) {
+  .container {
+    font-size: 15px;
   }
-
-  @media (max-width: 1111px){
-    .container{
-      font-size: 15px;
-    }
-  }
+}

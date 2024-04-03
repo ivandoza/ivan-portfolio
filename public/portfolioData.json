@@ -5,10 +5,10 @@
       "telegram":"https://github.com/ivandoza"
     },
     "info": {
-       "message":"Hi, I'm Iván",
-       "profile": "Software Developer, apasionado por el desarrollo Frontend ♥️. Me encanta crear sitios web que brinden una experiencia de usuario única y satisfactoria. Puedes ver algunos de mis proyectos en la sección de proyectos. Soy una persona autodidacta, responsable y comprometida con mi trabajo. Constantemente estoy aprendiendo nuevas tecnologías y herramientas para mejorar mis habilidades. Si tiene alguna pregunta o algun comentario no dude en contactarme.",
-       "experience": "NADA",
-       "Studies":"NADA"
+       "message":"Hola, soy Iván",
+       "profile": "Como apasionado del desarrollo web, disfruto adquiriendo nuevos conocimientos. Mi viaje comenzó hace un año con tecnologías Frontend y  ahora me dedico activamente a desarrollar sitios web que brinden una experiencia de usuario única y satisfactoria. Soy una persona autodidacta, responsable y comprometido con mi trabajo. Constantemente estoy aprendiendo nuevas tecnologías y herramientas para mejorar mis habilidades.",
+       "experience": "Durante mi trayectoria, he llevado a cabo proyectos web tanto de manera colaborativa en equipos de trabajo remotos, como de forma individual. Aunque aún no cuento con experiencia profesional formal, he adquirido habilidades valiosas y experiencia práctica a través de estos proyectos.",
+       "studies":"Poseo un certificado de Full Stack developer obtenido tras completar un bootcamp de 6 meses con Develhope. Durante esta experiencia, trabajé con metodologías ágiles y con tecnologías como Javascript, React, Typescript, CSS, Node.js, entre otras. Además, he complementado mi formación con otros cursos de manera autodidacta, que me han permitido expandir mis conocimientos de manera continua y autónoma."
     },
     "projects": {
         "pancake": {

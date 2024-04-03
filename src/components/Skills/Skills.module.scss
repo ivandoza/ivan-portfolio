@@ -5,11 +5,15 @@
   align-items: center;
   margin-bottom: 50px;
   gap: 50px;
+  width: 100%;
 }
 
 .skills h2 {
   margin-top: 20px;
+  border: none;
 }
+
+//------------------------Infinite Slider--------------------------//
 
 .scroll {
   position: relative;
@@ -24,17 +28,14 @@
     black calc(100% - 80px),
     transparent
   );
-  // -webkit-mask-image: linear-gradient(90deg, transparent, #e3daf2 20%, #e3daf2 80%, transparent)
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #e3daf2 20%,
+    #e3daf2 80%,
+    transparent
+  );
 }
-
-@media (max-width: 600px) {
-  .scroll {
-    mask-image: none;
-    max-width: 100%;
-  }
-}
-
-
 
 .scroll div {
   white-space: nowrap;
@@ -79,7 +80,6 @@
   background: var(--gradient-orange);
   color: #fff;
   padding: 8px 15px;
-  border-radius: 5px;
   border-radius: 25px;
   transition: 0.5s;
   margin: 10px;
@@ -105,6 +105,8 @@
   z-index: 1;
 }
 
+//------------------------Lists--------------------------//
+
 .skillsList {
   display: flex;
   flex-direction: row;
@@ -113,23 +115,25 @@
   font-size: 18px;
 }
 
-.front h3, .back h3 {
+.front h3,
+.back h3 {
   margin-bottom: 20px;
   border-bottom: 3px solid var(--orange);
   text-align: center;
 }
-.front li, .back li {
+.front li,
+.back li {
   margin-bottom: 8px;
 }
 
-@media (max-width: 1111px){
+@media (max-width: 1111px) {
   .skills {
     gap: 30px;
   }
-  .scroll div span{
+  .scroll div span {
     padding: 4px 12px;
     font-size: 14px;
-    gap: 6px
+    gap: 6px;
   }
   .icon {
     width: 22px;
@@ -137,5 +141,11 @@
   }
   .icon:first-child {
     font-size: 11px;
+  }
+}
+@media (max-width: 600px) {
+  .scroll {
+    mask-image: none;
+    max-width: 100%;
   }
 }

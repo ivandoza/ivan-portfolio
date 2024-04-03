@@ -1,16 +1,11 @@
 import React, { useEffect } from "react";
 import styles from "./Skills.module.scss";
 import {
-  DiCss3,
-  DiHtml5,
   DiJsBadge,
-  DiNodejsSmall,
-  DiPostgresql,
 } from "react-icons/di";
 import {
   SiExpress,
   SiPostgresql,
-  SiSass,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -24,10 +19,10 @@ function Skills() {
   // const { project, github, name, description } = props.data
   useEffect(() => {
     AOS.init({ duration: 1000 });
-}, []);
+  }, []);
   return (
     <div className={styles.skills}>
-      <h2>My Skills:</h2>
+      <h2>Skills:</h2>
       <div className={styles.scroll}>
         <div>
           <span className={styles.html}>
@@ -44,7 +39,7 @@ function Skills() {
           </span>
           <span className={styles.sass}>
             <p className={styles.icon}>
-            <FaSass />
+              <FaSass />
             </p>{" "}
             <p>Sass</p>
           </span>
@@ -92,15 +87,21 @@ function Skills() {
           </span>
         </div>
         <div>
-        <span className={styles.html}>
-          <p className={styles.icon}><FaHtml5 /></p><p>HTML</p> 
+          <span className={styles.html}>
+            <p className={styles.icon}>
+              <FaHtml5 />
+            </p>
+            <p>HTML</p>
           </span>
           <span className={styles.css}>
-          <p className={styles.icon}><FaCss3 /></p> <p>CSS</p> 
+            <p className={styles.icon}>
+              <FaCss3 />
+            </p>{" "}
+            <p>CSS</p>
           </span>
           <span className={styles.sass}>
             <p className={styles.icon}>
-            <FaSass />
+              <FaSass />
             </p>{" "}
             <p>Sass</p>
           </span>
@@ -158,7 +159,7 @@ function Skills() {
           <li>Sass</li>
         </ul>
         <ul className={styles.back} data-aos="fade-left">
-        <h3>Backend</h3>
+          <h3>Backend</h3>
           <li>Node.js</li>
           <li>Express.js</li>
           <li>PostgreSQL</li>
