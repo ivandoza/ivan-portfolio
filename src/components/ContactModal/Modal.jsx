@@ -31,7 +31,6 @@ const Modal = ({ onClose }) => {
   const { linkedin, github, telegram } = social || {};
 
   //Form
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,49 +47,33 @@ const Modal = ({ onClose }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    // Simulando una solicitud de envío a un servidor
-    // En un entorno real, reemplaza este bloque con la lógica de tu servidor
-    setTimeout(() => {
-      // Si se envía correctamente
-      setSuccessMessage(true);
-      setErrorMessage(false);
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        console.log("Formulario enviado exitosamente");
+        setSuccessMessage(true);
+        setErrorMessage(false);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error al enviar el formulario:", error);
+        setSuccessMessage(false);
+        setErrorMessage(true);
       });
-    }, 2000);
-
-    // Código real para enviar datos al servidor
-    // fetch('URL_DEL_SERVIDOR', {
-    //     method: 'POST',
-    //     body: JSON.stringify(formData)
-    // })
-    // .then(response => {
-    //     if (response.ok) {
-    //         setSuccessMessage(true);
-    //         setErrorMessage(false);
-    //         setFormData({
-    //             name: '',
-    //             email: '',
-    //             subject: '',
-    //             message: ''
-    //         });
-    //     } else {
-    //         setSuccessMessage(false);
-    //         setErrorMessage(true);
-    //     }
-    // })
-    // .catch(error => {
-    //     console.error('Error al enviar el formulario:', error);
-    //     setSuccessMessage(false);
-    //     setErrorMessage(true);
-    // });
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -118,7 +101,12 @@ const Modal = ({ onClose }) => {
           </button>
         </div>
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit} className={styles.form} method="POST" data-netlify="true">
+          <form
+            onSubmit={handleSubmit}
+            className={styles.form}
+            method="POST"
+            data-netlify="true"
+          >
             <input
               type="text"
               placeholder="Nombre"
