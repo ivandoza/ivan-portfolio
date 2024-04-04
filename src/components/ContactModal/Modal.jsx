@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.scss";
 import { SlClose } from "react-icons/sl";
@@ -45,19 +45,30 @@ const Modal = ({ onClose }) => {
 
   //Form
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log("Datos del formulario:", formData);
     setTimeout(() => {
       setSuccessMessage(true);
       setErrorMessage(false);
       setTimeout(() => {
-        navigate('/'); // Redireccionar a la página de inicio
+        navigate("/");
       }, 2000);
     }, 1000);
+
+    const form = e.target;
+    form.submit();
   };
 
   return (
@@ -76,25 +87,52 @@ const Modal = ({ onClose }) => {
         <div className={styles.formContainer}>
           <form
             className={styles.form}
-            onSubmit={handleSubmit}
             name="contact"
             method="POST"
             data-netlify="true"
+            action="/"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
-            <input type="text" placeholder="Nombre" name="name" required />
+            <input
+              type="text"
+              placeholder="Nombre"
+              name="name"
+              required
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
             <input
               type="email"
               placeholder="Correo electrónico"
               name="email"
               required
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
-            <input type="text" placeholder="Asunto" name="subject" required />
+            <input
+              type="text"
+              placeholder="Asunto"
+              name="subject"
+              required
+              value={formData.subject}
+              onChange={(e) =>
+                setFormData({ ...formData, subject: e.target.value })
+              }
+            />
             <textarea
               placeholder="Mensaje"
               rows="5"
               name="message"
               required
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
             ></textarea>
             <div>
               <button type="submit">Enviar</button>
