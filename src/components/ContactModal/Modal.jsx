@@ -8,6 +8,7 @@ import ModalMsg from "../ModalMsg/ModalMsg";
 import { PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
 import Background from "../Background/Background";
 import { DataContext } from "../../data/DataContext";
+import axios from "axios";
 
 const Modal = ({ onClose }) => {
   const navigate = useNavigate();
@@ -59,13 +60,25 @@ const Modal = ({ onClose }) => {
     e.preventDefault();
     e.stopPropagation();
     console.log("Datos del formulario:", formData);
-    setTimeout(() => {
-      setSuccessMessage(true);
-      setErrorMessage(false);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    }, 1000);
+    axios
+      .post("/", new URLSearchParams(formData).toString())
+      .then(() => {
+        setTimeout(() => {
+          setSuccessMessage(true);
+          setErrorMessage(false);
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }, 1000);
+      })
+
+      .catch(() => {
+        setSuccessMessage(false);
+        setErrorMessage(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      });
 
     const form = e.target;
     form.submit();
@@ -88,8 +101,8 @@ const Modal = ({ onClose }) => {
           <form
             className={styles.form}
             name="contact"
-            method="POST"
-            netlify-honeypot="bot-field"
+            action="/"
+            method="post"
             data-netlify="true"
             onSubmit={handleSubmit}
           >
