@@ -25,6 +25,15 @@
   width: 485px;
   height: max-content;
   position: relative;
+  @media (max-width: 560px) {
+    width: 400px;
+  }
+  @media (max-width: 450px) {
+    width: 300px;
+  }
+  @media (max-width: 345px) {
+    width: 100%;
+  }
 }
 
 .header {
@@ -118,6 +127,9 @@
     &:hover {
       opacity: 0.8;
     }
+  }
+  @media (max-width: 560px) {
+    width: 100%;
   }
 }
 

@@ -30,52 +30,6 @@ const Modal = ({ onClose }) => {
   const { social } = portfolioData || {};
   const { linkedin, github, telegram } = social || {};
 
-  //Form
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [successMessage, setSuccessMessage] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-console.log(formData)
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => {
-        console.log("Formulario enviado exitosamente");
-        setSuccessMessage(true);
-        setErrorMessage(false);
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.error("Error al enviar el formulario:", error);
-        setSuccessMessage(false);
-        setErrorMessage(true);
-      });
-  };
-
   const [showModal, setShowModal] = useState(false);
 
   const copyToClipboard = (text) => {
@@ -102,71 +56,38 @@ console.log(formData)
         </div>
         <div className={styles.formContainer}>
           <form
-            onSubmit={handleSubmit}
             className={styles.form}
             method="POST"
             data-netlify="true"
             name="contactForm"
           >
-            <input type="hidden" name="form-name" value="contactForm" />
             <input
               type="text"
               placeholder="Nombre"
               name="name"
               required
-              value={formData.name}
-              onChange={handleChange}
             />
             <input
               type="email"
               placeholder="Correo electrónico"
               name="email"
               required
-              value={formData.email}
-              onChange={handleChange}
             />
             <input
               type="text"
               placeholder="Asunto"
               name="subject"
               required
-              value={formData.subject}
-              onChange={handleChange}
             />
             <textarea
               placeholder="Mensaje"
               rows="5"
               name="message"
               required
-              value={formData.message}
-              onChange={handleChange}
             ></textarea>
             <div>
               <button type="submit">Enviar</button>
             </div>
-            {successMessage && (
-              <ModalMsg
-                type="alert"
-                closeMsg={() => {
-                  setShowModal(false);
-                  setSuccessMessage(false);
-                }}
-              >
-                ¡Mensaje enviado! Te responderé lo antes posible.
-              </ModalMsg>
-            )}
-            {errorMessage && (
-              <ModalMsg
-                type="alert"
-                closeMsg={() => {
-                  setShowModal(false);
-                  setErrorMessage(false);
-                }}
-              >
-                ¡El mensaje no se pudo enviar! Por favor, intenta nuevamente más
-                tarde.
-              </ModalMsg>
-            )}
           </form>
 
           <div className={styles.email}>
