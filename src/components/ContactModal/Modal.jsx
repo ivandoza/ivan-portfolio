@@ -58,10 +58,10 @@ const Modal = ({ onClose }) => {
           <form
             className={styles.form}
             name="contact"
-            action="/pages/success"
-            method="POST"
-            netlify
+            method="POST" 
+            data-netlify="true"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <input
               type="text"
               placeholder="Nombre"

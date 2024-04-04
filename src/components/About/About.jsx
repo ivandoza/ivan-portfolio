@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./About.module.scss";
 import { Fade } from "react-awesome-reveal";
-import profileImg from "../../assets/ivandorta.png";
+import profileImg from "/ivandorta.png";
 import Skills from "../Skills/Skills";
 import ToggleTab from "./ToggleTab/ToggleTab";
 import { DataContext } from "../../DataContext";
