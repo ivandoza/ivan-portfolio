@@ -138,7 +138,6 @@ function Header() {
                 <li className={current === "contact" ? styles.current : ""}>
                   <a
                     className={styles.smoothscroll}
-                    href="#contact"
                     onClick={() => {
                       setIsContactOpen(true);
                     }}

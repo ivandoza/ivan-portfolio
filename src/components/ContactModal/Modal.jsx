@@ -42,7 +42,7 @@ const Modal = ({ onClose }) => {
   };
 
   return (
-    <div id="contact" className={styles.modalOverlay}>
+    <div className={styles.modalOverlay}>
       <Background />
       <div className={styles.modalContent}>
         <div className={styles.header}>
