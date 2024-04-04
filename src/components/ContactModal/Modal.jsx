@@ -89,8 +89,8 @@ const Modal = ({ onClose }) => {
             className={styles.form}
             name="contact"
             method="POST"
+            netlify-honeypot="bot-field"
             data-netlify="true"
-            action="/"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
