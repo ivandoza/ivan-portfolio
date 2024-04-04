@@ -8,7 +8,7 @@ import BackgroundAnimation from "../Background/Background";
 import Button from "../Buttons/Button";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
-import { DataContext } from "../../DataContext";
+import { DataContext } from "../../data/DataContext";
 
 const Projects = () => {
   const { portfolioData } = useContext(DataContext);

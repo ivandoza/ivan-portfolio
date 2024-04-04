@@ -1,35 +1,17 @@
-import React, { useEffect, useState } from "react";
-import About from "./components/About/About";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Home/Header";
-import Projects from "./components/Projects/Projects";
-import axios from "axios";
-import { DataContext } from "./DataContext";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ModalPage from "./pages/ModalPage";
 
 function App() {
-  const [portfolioData, setPortfolioData] = useState({});
-
-  useEffect(() => {
-    const getPortfolioData = async () => {
-      try {
-        const response = await axios.get("./portfolioData.json");
-        setPortfolioData(response.data);
-      } catch (error) {
-        console.error(error);
-        alert("Failed to fetch data");
-      }
-    };
-
-    getPortfolioData();
-  }, []);
 
   return (
-    <DataContext.Provider value={{ portfolioData }}>
-      <Header />
-      <About />
-      <Projects />
-      <Footer />
-    </DataContext.Provider>
+    <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/contact" element={<ModalPage />} />
+    </Routes>
+  </Router>
   );
 }
 

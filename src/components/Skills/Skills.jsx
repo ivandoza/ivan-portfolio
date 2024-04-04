@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import styles from "./Skills.module.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { DataContext } from "../../DataContext";
+import { DataContext } from "../../data/DataContext";
 import { dataSlider } from "./SliderData";
 
 function Skills() {

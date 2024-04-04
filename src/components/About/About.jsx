@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 import profileImg from "/ivandorta.png";
 import Skills from "../Skills/Skills";
 import ToggleTab from "./ToggleTab/ToggleTab";
-import { DataContext } from "../../DataContext";
+import { DataContext } from "../../data/DataContext";
 
 function About() {
   const { portfolioData } = useContext(DataContext);

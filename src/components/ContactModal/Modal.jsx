@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
 import styles from "./Modal.module.scss";
 import { SlClose } from "react-icons/sl";
@@ -6,9 +7,10 @@ import { GoCopy } from "react-icons/go";
 import ModalMsg from "../ModalMsg/ModalMsg";
 import { PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
 import Background from "../Background/Background";
-import { DataContext } from "../../DataContext";
+import { DataContext } from "../../data/DataContext";
 
 const Modal = ({ onClose }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
@@ -41,6 +43,23 @@ const Modal = ({ onClose }) => {
       );
   };
 
+  //Form
+
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setTimeout(() => {
+      setSuccessMessage(true);
+      setErrorMessage(false);
+      setTimeout(() => {
+        navigate('/'); // Redireccionar a la página de inicio
+      }, 2000);
+    }, 1000);
+  };
+
   return (
     <div className={styles.modalOverlay}>
       <Background />
@@ -57,29 +76,20 @@ const Modal = ({ onClose }) => {
         <div className={styles.formContainer}>
           <form
             className={styles.form}
+            onSubmit={handleSubmit}
             name="contact"
-            method="POST" 
+            method="POST"
             data-netlify="true"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <input
-              type="text"
-              placeholder="Nombre"
-              name="name"
-              required
-            />
+            <input type="text" placeholder="Nombre" name="name" required />
             <input
               type="email"
               placeholder="Correo electrónico"
               name="email"
               required
             />
-            <input
-              type="text"
-              placeholder="Asunto"
-              name="subject"
-              required
-            />
+            <input type="text" placeholder="Asunto" name="subject" required />
             <textarea
               placeholder="Mensaje"
               rows="5"
@@ -89,6 +99,29 @@ const Modal = ({ onClose }) => {
             <div>
               <button type="submit">Enviar</button>
             </div>
+            {successMessage && (
+              <ModalMsg
+                type="alert"
+                closeMsg={() => {
+                  setShowModal(false);
+                  setSuccessMessage(false);
+                }}
+              >
+                ¡Mensaje enviado! Te responderé lo antes posible.
+              </ModalMsg>
+            )}
+            {errorMessage && (
+              <ModalMsg
+                type="alert"
+                closeMsg={() => {
+                  setShowModal(false);
+                  setErrorMessage(false);
+                }}
+              >
+                ¡El mensaje no se pudo enviar! Por favor, intenta nuevamente más
+                tarde.
+              </ModalMsg>
+            )}
           </form>
 
           <div className={styles.email}>

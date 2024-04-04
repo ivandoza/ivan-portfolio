@@ -13,7 +13,8 @@ import {
 import Modal from "../ContactModal/Modal";
 import Home from "./Home";
 import { Link, animateScroll as scroll } from "react-scroll";
-import { DataContext } from "../../DataContext";
+import { useNavigate } from "react-router-dom";
+import { DataContext } from "../../data/DataContext";
 
 function Header() {
   const { portfolioData } = useContext(DataContext);
@@ -79,6 +80,14 @@ function Header() {
 
     link.click();
   };
+
+  const navigate = useNavigate();
+
+  const handleOpenModal = () => {
+    setIsContactOpen(true);
+    navigate("/contact");
+  };
+
   return (
     <Home>
       <header id="home">
@@ -136,12 +145,7 @@ function Header() {
                 </li>
 
                 <li className={current === "contact" ? styles.current : ""}>
-                  <a
-                    className={styles.smoothscroll}
-                    onClick={() => {
-                      setIsContactOpen(true);
-                    }}
-                  >
+                  <a className={styles.smoothscroll} onClick={handleOpenModal}>
                     Contacto
                   </a>
                 </li>
@@ -173,7 +177,7 @@ function Header() {
                       texto="Contactar"
                       icon={<PiEnvelopeSimple />}
                       isBlue
-                      onClick={() => setIsContactOpen(true)}
+                      onClick={handleOpenModal}
                     />
                   </li>
                 </ul>

@@ -7,7 +7,7 @@ import {
   PiLinkedinLogo,
   PiTelegramLogo,
 } from "react-icons/pi";
-import { DataContext } from "../../DataContext";
+import { DataContext } from "../../data/DataContext";
 
 function Footer() {
 
