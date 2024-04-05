@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-router.post('/server/send-email', (req, res) => {
+router.post('/api/send-email', (req, res) => {
     console.log(req)
   const { name, email, subject, message } = req.body;
 
@@ -43,6 +43,6 @@ router.post('/server/send-email', (req, res) => {
   });
 });
 
-server.use('/server/', router);
+server.use('/api/', router);
 
 export const handler = serverless(router);

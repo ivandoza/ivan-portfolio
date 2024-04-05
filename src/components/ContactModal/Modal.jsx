@@ -61,7 +61,7 @@ const Modal = ({ onClose }) => {
     e.stopPropagation();
     console.log("Datos del formulario:", formData);
      try {
-      const response = await axios.post('/server/send-email', formData);
+      const response = await axios.post('/api/send-email', formData);
       if (response.status === 200) {
         console.log('Correo electrónico enviado con éxito');
         setSuccessMessage(true);
