@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-router.post('/send-email', (req, res) => {
+router.post('/server/send-email', (req, res) => {
     console.log(req)
   const { name, email, subject, message } = req.body;
 
