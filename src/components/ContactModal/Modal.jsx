@@ -9,6 +9,7 @@ import { PiGithubLogo, PiLinkedinLogo, PiTelegramLogo } from "react-icons/pi";
 import Background from "../Background/Background";
 import { DataContext } from "../../data/DataContext";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const Modal = ({ onClose }) => {
   const navigate = useNavigate();
@@ -46,6 +47,8 @@ const Modal = ({ onClose }) => {
 
   //Form
 
+  const form = useRef();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -59,26 +62,50 @@ const Modal = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log("Datos del formulario:", formData);
-     try {
-      const response = await axios.post('/api/send-email', formData);
-      if (response.status === 200) {
-        console.log('Correo electrónico enviado con éxito');
-        setSuccessMessage(true);
-        setErrorMessage(false);
-      } else {
-        console.error('Error al enviar el correo electrónico');
-        setSuccessMessage(false);
-        setErrorMessage(true);
-      }
-    } catch (error) {
-      console.error('Error al enviar el correo electrónico:', error);
-      setSuccessMessage(false);
-      setErrorMessage(true);
-    }
-        setTimeout(() => {
-            navigate("/");
-          }, 2000);
+    console.log("Form Data", formData);
+
+    const serviceId = process.env.SERVICE_ID;
+    const publicId = process.env.PUBLIC_ID;
+    const templateId = process.env.TEMPLATE_ID;
+
+    emailjs
+      .sendForm(serviceId, templateId, form.current, {
+        publicKey: publicId,
+      })
+      .then(
+        () => {
+          setSuccessMessage(true);
+          setErrorMessage(false);
+          console.log("Email sent");
+        },
+        (error) => {
+          setSuccessMessage(false);
+          setErrorMessage(true);
+          console.log("Error sending email", error.text);
+        }
+      );
+
+    //Code for express App
+
+    //  try {
+    //   const response = await axios.post('/api/send-email', formData);
+    //   if (response.status === 200) {
+    //     console.log('Correo electrónico enviado con éxito');
+    //     setSuccessMessage(true);
+    //     setErrorMessage(false);
+    //   } else {
+    //     console.error('Error al enviar el correo electrónico');
+    //     setSuccessMessage(false);
+    //     setErrorMessage(true);
+    //   }
+    // } catch (error) {
+    //   console.error('Error al enviar el correo electrónico:', error);
+    //   setSuccessMessage(false);
+    //   setErrorMessage(true);
+    // }
+    setTimeout(() => {
+      navigate("/");
+    }, 3500);
   };
 
   return (
@@ -95,10 +122,7 @@ const Modal = ({ onClose }) => {
           </button>
         </div>
         <div className={styles.formContainer}>
-          <form
-            className={styles.form}
-            onSubmit={handleSubmit}
-          >
+          <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Nombre"
