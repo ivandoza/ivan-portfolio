@@ -64,9 +64,9 @@ const Modal = ({ onClose }) => {
     e.stopPropagation();
     console.log("Form Data", formData);
 
-    const serviceId = process.env.SERVICE_ID;
-    const publicId = process.env.PUBLIC_ID;
-    const templateId = process.env.TEMPLATE_ID;
+    const serviceId = 'service_rjxh1jj';
+    const publicId = 'swdCZ6c3SY5NBvk1w';
+    const templateId = 'template_6rw628q';
 
     emailjs
       .sendForm(serviceId, templateId, form.current, {
