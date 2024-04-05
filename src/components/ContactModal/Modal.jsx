@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.scss";
@@ -122,7 +122,7 @@ const Modal = ({ onClose }) => {
           </button>
         </div>
         <div className={styles.formContainer}>
-          <form className={styles.form} onSubmit={handleSubmit}>
+          <form className={styles.form} ref={form} onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Nombre"
