@@ -5,6 +5,6 @@ functions = "functions"
   node_bundler = "esbuild"
 [[redirects]]
   force = true
-  from = "/server/send-email"
+  from = "/contact/"
   status = 200
-  to = "/.netlify/functions/server/send-email"
+  to = "/.netlify/functions/server/send-email/"
