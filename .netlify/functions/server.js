@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 const server = express();
-const router = Router();
+const router = express.Router();
 
 server.use(cors());
 
