@@ -168,7 +168,7 @@ function Header() {
                     <Button
                       texto="Descargar CV"
                       icon={<PiDownloadSimpleBold />}
-                      isBlue
+                      isGrey
                       onClick={handleDownload}
                     />
                   </li>
@@ -176,7 +176,7 @@ function Header() {
                     <Button
                       texto="Contactar"
                       icon={<PiEnvelopeSimple />}
-                      isBlue
+                      isGrey
                       onClick={handleOpenModal}
                     />
                   </li>

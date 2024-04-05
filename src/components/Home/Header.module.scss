@@ -223,10 +223,13 @@ header:before {
     bottom: 50px;
     transform: translateY(0);
     @media (max-width: 768px) {
-      position: relative;
+      position: absolute;
       flex-direction: row;
       left: auto;
-      bottom: auto;
+      left: 0;
+      right: auto;
+      right: 0;
+      bottom: 70px;
       justify-content: center;
       align-items: center;
       margin-top: 80px;

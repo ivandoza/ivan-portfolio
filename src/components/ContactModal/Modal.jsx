@@ -56,32 +56,29 @@ const Modal = ({ onClose }) => {
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     console.log("Datos del formulario:", formData);
-    axios
-      .post("/", new URLSearchParams(formData).toString())
-      .then(() => {
-        setTimeout(() => {
-          setSuccessMessage(true);
-          setErrorMessage(false);
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-        }, 1000);
-      })
-
-      .catch(() => {
+     try {
+      const response = await axios.post('/send-email', formData);
+      if (response.status === 200) {
+        console.log('Correo electrónico enviado con éxito');
+        setSuccessMessage(true);
+        setErrorMessage(false);
+      } else {
+        console.error('Error al enviar el correo electrónico');
         setSuccessMessage(false);
         setErrorMessage(true);
+      }
+    } catch (error) {
+      console.error('Error al enviar el correo electrónico:', error);
+      setSuccessMessage(false);
+      setErrorMessage(true);
+    }
         setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      });
-
-    const form = e.target;
-    form.submit();
+            navigate("/");
+          }, 2000);
   };
 
   return (
@@ -100,13 +97,8 @@ const Modal = ({ onClose }) => {
         <div className={styles.formContainer}>
           <form
             className={styles.form}
-            name="contact"
-            action="/"
-            method="post"
-            data-netlify="true"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="form-name" value="contact" />
             <input
               type="text"
               placeholder="Nombre"

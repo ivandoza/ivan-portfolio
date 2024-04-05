@@ -5,11 +5,10 @@ const cx = classNames.bind(styles);
 
 const Button = ({
   texto,
-  isTransparent,
-  isBlue,
   isBlack,
   isWeb,
   isPortfolio,
+  isGrey,
   icon,
   onClick,
   link,
@@ -17,8 +16,7 @@ const Button = ({
 }) => {
   const className = cx({
     button: true,
-    transparent: isTransparent,
-    blue: isBlue,
+    grey: isGrey,
     black: isBlack,
     web: isWeb,
     portfolio: isPortfolio,
