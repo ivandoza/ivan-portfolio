@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Icod de los Vinos",
+			"country": {
+				"code": "ES",
+				"name": "Spain"
+			},
+			"subdivision": {
+				"code": "CN",
+				"name": "Canary Islands"
+			},
+			"timezone": "Atlantic/Canary",
+			"latitude": 28.3743,
+			"longitude": -16.712
+		},
+		"timestamp": 1712325602789
+	}
+}

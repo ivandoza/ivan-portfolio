@@ -5,11 +5,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 const server = express();
-const router = express.Router();
+const router = Router();
 
 server.use(cors());
 
-// Middleware para parsear el cuerpo de las solicitudes
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
