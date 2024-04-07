@@ -71,16 +71,16 @@ function Header() {
   };
 
   const handleDownload = () => {
-    window.location.href = 'https://ivan-cv.netlify.app/descarga.apk';
+    window.location.href = 'https://ivan-cv.netlify.app/CV-IVAN.pdf';
   };
-    // const pdfUrl = "/CV_Ivan_Dorta.pdf";
+  //   const pdfUrl = "/CV_Ivan_Dorta.pdf";
 
-    // const link = document.createElement("a");
-    // link.href = pdfUrl;
-    // link.target = "_blank";
-    // link.rel = "noopener noreferrer";
+  //   const link = document.createElement("a");
+  //   link.href = pdfUrl;
+  //   link.target = "_blank";
+  //   link.rel = "noopener noreferrer";
 
-    // link.click();
+  //   link.click();
   // };
 
   const navigate = useNavigate();
