@@ -8,3 +8,8 @@ functions = "functions"
   from = "/api/*"
   status = 200
   to = "/api/send-email/"
+[[redirects]]
+  from = "https://www.ivandorta.netlify.com/*"
+  to = "https://www.ivan-dorta.com/:splat"
+  status = 301
+  force = true
