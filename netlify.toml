@@ -10,11 +10,11 @@ functions = "functions"
   to = "/api/send-email/"
 [[redirects]]
   from = "https://www.ivandorta.netlify.com/*"
-  to = "https://ivan-dorta.com/:splat"
+  to = "https://ivandorta.dev/:splat"
   status = 301
   force = true
 [[redirects]]
   from = "https://ivandorta.netlify.com/*"
-  to = "https://ivan-dorta.com/:splat"
+  to = "https://ivandorta.dev/:splat"
   status = 301
   force = true

@@ -34,7 +34,7 @@
     },
     "portfolio": {
       "name": "Mi web portafolio",
-      "description": "Esta web portafolio, elaborada con React.js, presenta animaciones utilizando la biblioteca AOS y CSS. Entre sus funcionalidades he implementado un formulario de contacto backend con Express.js alojada en linea con AWS Lambda. El frontend diseñado con Sass, ofrece una plataforma interactiva y visualmente atractiva para mostrar mi perfil profesional y proyectos.",
+      "description": "Esta web portafolio, elaborada con React.js, presenta animaciones utilizando la biblioteca AOS y CSS. Entre sus funcionalidades he implementado un formulario de contacto con Express.js. El frontend diseñado con Sass, ofrece una plataforma interactiva y visualmente atractiva para mostrar mi perfil profesional y proyectos.",
       "items": [
         "React",
         "JavaScript",
