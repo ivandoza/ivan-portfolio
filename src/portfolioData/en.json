@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "home",
+    "about": "about me",
+    "projects": "projects",
+    "contact": "contact"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/ivandoza/",
+    "github": "https://github.com/ivandoza",
+    "telegram": "https://t.me/ivdoza"
+  },
+  "info": {
+    "message": "Hola, soy Iván",
+    "profile": "Como apasionado del desarrollo web, disfruto adquiriendo nuevos conocimientos. Mi viaje como programador comenzó hace un año con lenguajes Frontend y actualmente me dedico a desarrollar sitios web que brinden una experiencia de usuario única y satisfactoria. Soy una persona autodidacta, responsable y comprometido con mi trabajo. Constantemente estoy aprendiendo nuevas tecnologías y herramientas para mejorar mis habilidades.",
+    "experience": "Durante mi trayectoria, he llevado a cabo proyectos web tanto de manera colaborativa en equipos de trabajo remotos, como de forma individual. Aunque aún no cuento con experiencia profesional formal, he adquirido habilidades valiosas y experiencia práctica a través de estos proyectos.",
+    "studies": "Poseo un certificado de Full Stack developer obtenido tras completar un bootcamp de 6 meses con Develhope. Durante esta experiencia, trabajé con metodologías ágiles y con tecnologías como Javascript, React, Typescript, CSS, Node.js, entre otras. Además, he complementado mi formación con otros cursos de manera autodidacta, que me han permitido expandir mis conocimientos de manera continua y autónoma."
+  },
+  "skills": {
+    "frontend": [
+      "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Tailwind css",
+      "Sass"
+    ],
+    "backend": ["Node.js", "Express.js", "PostgreSQL", "Ethereum", "Web3.js"]
+  },
+  "projects": {
+    "pancake": {
+      "name": "PancakeSwap.finance",
+      "description": "Proyecto de un exchange descentralizado desarrollado en un equipo de trabajo con React.js, entre sus funcionalidades destaca la posibilidad de conectar la billetera Metamask con la red Ethereum asi como cambiar la red blockchain. La página muestra precios en tiempo real, ofrece un cambio de tema, y la posibilidad de cambiar el idioma. El frontend esta diseñado con Sass y ofrece numerosas animaciones.",
+      "items": [
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "Sass",
+        "ETH Blockchain",
+        "Web3.js",
+        "Swiper.js",
+        "Rest API",
+        "Git"
+      ],
+      "github": "https://github.com/fs4-equipo1/pancake-swap/",
+      "link": "https://pancake-swap-eta.vercel.app/"
+    },
+    "portfolio": {
+      "name": "Mi web portafolio",
+      "description": "Esta web portafolio, elaborada con React.js, presenta animaciones utilizando la biblioteca AOS y CSS. Entre sus funcionalidades he implementado un formulario de contacto con Express.js. El frontend diseñado con Sass, ofrece una plataforma interactiva y visualmente atractiva para mostrar mi perfil profesional y proyectos.",
+      "items": [
+        "React",
+        "JavaScript",
+        "Sass",
+        "Node.js",
+        "Express.js",
+        "Rest API",
+        "Git"
+      ],
+      "github": "https://github.com/ivandoza/ivan-portfolio"
+    }
+  }
+}

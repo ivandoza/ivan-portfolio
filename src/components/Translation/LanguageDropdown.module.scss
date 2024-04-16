@@ -1,0 +1,81 @@
+.dropdownContainer {
+  margin-top: 8px;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 0px inset;
+  cursor: pointer;
+  display: inline-flex;
+  height: 28px;
+  width: 35px; // Ancho inicial
+  padding: 0px 4px;
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--orange);
+  color: var(--white);
+  transition: width 0.5s ease; // Transición de la anchura
+
+  &:hover {
+    .dropdownContent {
+      display: block;
+    }
+  }
+
+  &.open {
+    width: 100px; // Ancho cuando el dropdown está abierto
+  }
+}
+
+.currentLanguage {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.currentLanguage:first-child {
+  height: 35px;
+  width: 35px;
+  position: relative;
+  margin-right: 7px;
+  font-size: 30px;
+}
+
+.currentLanguage:nth-child(2) {
+  font-size: 15px;
+}
+
+.dropdownButton {
+  display: flex;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 20px;
+  transition: transform 0.3s ease; // Transición del tamaño al hacer hover
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+}
+
+.dropdownContent p {
+  font-size: 15px;
+}
+
+.dropdownContent {
+  width: max-content;
+  padding: 4px 6px;
+  z-index: 1000;
+  font-size: 15px;
+  background-color: transparent;
+  text-align: center;
+  display: none;
+  overflow: hidden;
+  width: 100%; // Ajusta el ancho al 100%
+  position: absolute;
+  left: 0;
+}

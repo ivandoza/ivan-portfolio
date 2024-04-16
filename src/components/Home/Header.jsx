@@ -15,9 +15,13 @@ import Home from "./Home";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../data/DataContext";
+import { useTranslation } from "react-i18next";
+import LanguageDropdown from "../Translation/LanguageDropdown";
 
 function Header() {
   const { portfolioData } = useContext(DataContext);
+
+  const { t } = useTranslation();
 
   const { social } = portfolioData || {};
   const { linkedin, github, telegram } = social || {};
@@ -107,62 +111,68 @@ function Header() {
               className={isNavBlack === true ? styles.opaque : styles.navWrap}
             >
               <Fade bottom duration={500} delay={fontsLoaded ? 0 : 500}>
-                <ul id="nav" className={styles.nav}>
-                  <li
-                    className={
-                      current != "about" &&
-                      current != "projects" &&
-                      current != "contact"
-                        ? styles.current
-                        : ""
-                    }
-                  >
-                    <a
-                      className={styles.smoothscroll}
-                      href="#home"
-                      onClick={scrollToTop}
+                <div className={styles.navContainer}>
+                  <ul id="nav" className={styles.nav}>
+                    <li
+                      className={
+                        current != "about" &&
+                        current != "projects" &&
+                        current != "contact"
+                          ? styles.current
+                          : ""
+                      }
                     >
-                      Home
-                    </a>
-                  </li>
+                      <a
+                        className={styles.smoothscroll}
+                        href="#home"
+                        onClick={scrollToTop}
+                      >
+                        {t("nav.home")}
+                      </a>
+                    </li>
 
-                  <li className={current === "about" ? styles.current : ""}>
-                    <Link
-                      className={styles.smoothscroll}
-                      activeClass="active"
-                      to="about"
-                      spy={true}
-                      smooth={true}
-                      offset={0}
-                      duration={900}
-                    >
-                      Sobre mi
-                    </Link>
-                  </li>
+                    <li className={current === "about" ? styles.current : ""}>
+                      <Link
+                        className={styles.smoothscroll}
+                        activeClass="active"
+                        to="about"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={900}
+                      >
+                        {t("nav.about")}
+                      </Link>
+                    </li>
 
-                  <li className={current === "projects" ? styles.current : ""}>
-                    <Link
-                      className={styles.smoothscroll}
-                      activeClass="active"
-                      to="projects"
-                      spy={true}
-                      smooth={true}
-                      offset={0}
-                      duration={900}
+                    <li
+                      className={current === "projects" ? styles.current : ""}
                     >
-                      Proyectos
-                    </Link>
-                  </li>
-
-                  <li className={current === "contact" ? styles.current : ""}>
-                    <a
-                      className={styles.smoothscroll}
-                      onClick={handleOpenModal}
-                    >
-                      Contacto
-                    </a>
-                  </li>
-                </ul>
+                      <Link
+                        className={styles.smoothscroll}
+                        activeClass="active"
+                        to="projects"
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={900}
+                      >
+                        {t("nav.projects")}
+                      </Link>
+                    </li>
+                    <li className={current === "contact" ? styles.current : ""}>
+                      <a
+                        className={styles.smoothscroll}
+                        onClick={handleOpenModal}
+                      >
+                        {t("nav.contact")}
+                      </a>
+                    </li>
+                  </ul>
+                  <div className={styles.language}>
+                    <LanguageDropdown />
+                  </div>
+                </div>
               </Fade>
             </nav>
           )}
