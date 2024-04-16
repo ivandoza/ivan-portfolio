@@ -26,6 +26,13 @@ function Header() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isNavBlack, setIsNavBlack] = useState(false);
   const [current, setCurrent] = useState("");
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      setFontsLoaded(true);
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +78,7 @@ function Header() {
   };
 
   const handleDownload = () => {
-    window.location.href = 'https://ivan-cv.netlify.app/CV-IVAN.pdf';
+    window.location.href = "https://ivan-cv.netlify.app/CV-IVAN.pdf";
   };
   //   const pdfUrl = "/CV_Ivan_Dorta.pdf";
 
@@ -99,72 +106,75 @@ function Header() {
               id="nav-wrap"
               className={isNavBlack === true ? styles.opaque : styles.navWrap}
             >
-              <ul id="nav" className={styles.nav}>
-                <li
-                  className={
-                    current != "about" &&
-                    current != "projects" &&
-                    current != "contact"
-                      ? styles.current
-                      : ""
-                  }
-                >
-                  <a
-                    className={styles.smoothscroll}
-                    href="#home"
-                    onClick={scrollToTop}
+              <Fade bottom duration={500} delay={fontsLoaded ? 0 : 500}>
+                <ul id="nav" className={styles.nav}>
+                  <li
+                    className={
+                      current != "about" &&
+                      current != "projects" &&
+                      current != "contact"
+                        ? styles.current
+                        : ""
+                    }
                   >
-                    Home
-                  </a>
-                </li>
+                    <a
+                      className={styles.smoothscroll}
+                      href="#home"
+                      onClick={scrollToTop}
+                    >
+                      Home
+                    </a>
+                  </li>
 
-                <li className={current === "about" ? styles.current : ""}>
-                  <Link
-                    className={styles.smoothscroll}
-                    activeClass="active"
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    offset={0}
-                    duration={900}
-                  >
-                    Sobre mi
-                  </Link>
-                </li>
+                  <li className={current === "about" ? styles.current : ""}>
+                    <Link
+                      className={styles.smoothscroll}
+                      activeClass="active"
+                      to="about"
+                      spy={true}
+                      smooth={true}
+                      offset={0}
+                      duration={900}
+                    >
+                      Sobre mi
+                    </Link>
+                  </li>
 
-                <li className={current === "projects" ? styles.current : ""}>
-                  <Link
-                    className={styles.smoothscroll}
-                    activeClass="active"
-                    to="projects"
-                    spy={true}
-                    smooth={true}
-                    offset={0}
-                    duration={900}
-                  >
-                    Proyectos
-                  </Link>
-                </li>
+                  <li className={current === "projects" ? styles.current : ""}>
+                    <Link
+                      className={styles.smoothscroll}
+                      activeClass="active"
+                      to="projects"
+                      spy={true}
+                      smooth={true}
+                      offset={0}
+                      duration={900}
+                    >
+                      Proyectos
+                    </Link>
+                  </li>
 
-                <li className={current === "contact" ? styles.current : ""}>
-                  <a className={styles.smoothscroll} onClick={handleOpenModal}>
-                    Contacto
-                  </a>
-                </li>
-              </ul>
+                  <li className={current === "contact" ? styles.current : ""}>
+                    <a
+                      className={styles.smoothscroll}
+                      onClick={handleOpenModal}
+                    >
+                      Contacto
+                    </a>
+                  </li>
+                </ul>
+              </Fade>
             </nav>
           )}
 
           <div className={styles.rowBanner}>
             <div className={styles.bannerText}>
-              <Fade bottom>
+              <Fade bottom duration={1200} delay={fontsLoaded ? 0 : 500}>
                 <h1 className={styles.nombre}>IVÁN DORTA.</h1>
-              </Fade>
-              <Fade bottom duration={1200}>
                 <h3>Full Stack Web Developer</h3>
               </Fade>
               <hr />
-              <Fade bottom duration={2000}>
+              <Fade bottom duration={2000} delay={fontsLoaded ? 0 : 500}>
                 <ul className={styles.mainButtons}>
                   <li>
                     <Button
@@ -184,7 +194,7 @@ function Header() {
                   </li>
                 </ul>
               </Fade>
-              <Fade bottom duration={2500}>
+              <Fade bottom duration={2500} delay={fontsLoaded ? 0 : 500}>
                 <ul className={styles.media}>
                   <li>
                     <a href={github} target="_blank">
@@ -208,21 +218,23 @@ function Header() {
               </Fade>
             </div>
           </div>
-          <div className={styles.scrolldown}>
-            <Link
-              className={styles.smoothscroll}
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={0}
-              duration={2500}
-            >
-              <i className={styles.downCircle}>
-                <FaChevronCircleDown />
-              </i>
-            </Link>
-          </div>
+          <Fade bottom duration={2500} delay={fontsLoaded ? 0 : 500}>
+            <div className={styles.scrolldown}>
+              <Link
+                className={styles.smoothscroll}
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={2500}
+              >
+                <i className={styles.downCircle}>
+                  <FaChevronCircleDown />
+                </i>
+              </Link>
+            </div>
+          </Fade>
         </>
       </header>
       {isContactOpen && <Modal onClose={() => setIsContactOpen(false)} />}
