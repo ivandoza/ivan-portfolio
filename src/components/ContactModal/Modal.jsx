@@ -198,7 +198,7 @@ const Modal = ({ onClose }) => {
                 copyToClipboard(document.getElementById("emailText").innerText)
               }
             >
-              <p id="emailText">ivandoza@gmail.com</p>
+              <p id="emailText">contact@ivandorta.dev</p>
               <GoCopy className={styles.copyIcon} />
             </div>
             {showModal && (
