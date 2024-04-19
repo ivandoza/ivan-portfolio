@@ -11,7 +11,7 @@
     "studies": "Poseo un certificado de Full Stack developer obtenido tras completar un bootcamp de 6 meses con Develhope. Durante esta experiencia, trabajé con metodologías ágiles y con tecnologías como Javascript, React, Typescript, CSS, Node.js, entre otras. Además, he complementado mi formación con otros cursos de manera autodidacta, que me han permitido expandir mis conocimientos de manera continua y autónoma."
   },
   "skills": {
-    "frontend": ["JavaScript", "TypeScript", "React.js", "Tailwind css", "Sass"],
+    "frontend": ["JavaScript", "TypeScript", "React.js", "HTML5", "CSS3", "Tailwind", "Sass"],
     "backend": ["Node.js", "Express.js", "PostgreSQL", "Ethereum", "Web3.js"]
   },
   "projects": {
@@ -22,12 +22,14 @@
         "React",
         "JavaScript",
         "TypeScript",
+        "CSS",
         "Sass",
         "ETH Blockchain",
         "Web3.js",
         "Swiper.js",
         "Rest API",
-        "Git"
+        "Git",
+        "Vercel"
       ],
       "github": "https://github.com/fs4-equipo1/pancake-swap/",
       "link": "https://pancake-swap-eta.vercel.app/"
@@ -38,11 +40,13 @@
       "items": [
         "React",
         "JavaScript",
+        "CSS",
         "Sass",
         "Node.js",
         "Express.js",
         "Rest API",
-        "Git"
+        "Git",
+        "Netlify"
       ],
       "github": "https://github.com/ivandoza/ivan-portfolio"
     }
